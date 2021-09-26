@@ -1,5 +1,6 @@
 package com.cadernodecampo.springcadernodecampo.ServiceModel;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.cadernodecampo.springcadernodecampo.DominioModel.Produtor;
@@ -17,6 +18,16 @@ public class ProdutorService {
     
     public Produtor findById(Integer id){
         Optional<Produtor> obj = produtorRepository.findById(id);
-        return obj.orElseThrow(()-> new ObjectNotFoundException("Produtor não encontrado! Id: "+id+", tipo: "+Produtor.class.getName()));
+        return obj.orElseThrow(()-> new ObjectNotFoundException("Item não encontrado! Id: "+id+", tipo: "+Produtor.class.getName()));
+    }
+
+    public List<Produtor> findAll(){
+        return produtorRepository.findAll();
+    }
+
+    public Produtor create (Produtor obj){
+        obj.setId(null);
+        return produtorRepository.save(obj);
+
     }
 }
