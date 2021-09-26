@@ -1,4 +1,4 @@
-package com.cadernodecampo.springcadernodecampo.dominio;
+package com.cadernodecampo.springcadernodecampo.DominioModel;
 
 import java.io.Serializable;
 
