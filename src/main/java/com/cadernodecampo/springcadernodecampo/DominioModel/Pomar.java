@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Pomar implements Serializable {
 
@@ -25,10 +27,12 @@ public class Pomar implements Serializable {
     private String estado;
     private String cep;
 
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "idProdutor")
     private Produtor produtor;
 
+    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "idRespTecnico")
     private ResponsavelTecnico respTecnico;
