@@ -33,8 +33,9 @@ public class Pomar implements Serializable {
     @JoinColumn(name = "idRespTecnico")
     private ResponsavelTecnico respTecnico;
 
-    public Pomar(String nome, String logradouro, String bairro_localidade, String cidade, String estado, String cep,
-            Produtor produtor) {
+    public Pomar(Integer id, String nome, String logradouro, String bairro_localidade, String cidade, String estado,
+            String cep, Produtor produtor, ResponsavelTecnico respTecnico) {
+        this.setId(id);
         this.setNome(nome);
         this.setLogradouro(logradouro);
         this.setBairro_localidade(bairro_localidade);
@@ -42,6 +43,7 @@ public class Pomar implements Serializable {
         this.setEstado(estado);
         this.setCep(cep);
         this.setProdutor(produtor);
+        this.setRespTecnico(respTecnico);
     }
 
     public ResponsavelTecnico getRespTecnico() {

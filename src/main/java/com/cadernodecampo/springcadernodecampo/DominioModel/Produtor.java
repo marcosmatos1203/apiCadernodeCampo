@@ -124,9 +124,9 @@ public class Produtor implements Serializable {
         this.id = id;
     }
 
-    public Produtor(String nome, String logradouro, String bairro_localidade, String cidade, String estado, String cep,
+    public Produtor(Integer id,String nome, String logradouro, String bairro_localidade, String cidade, String estado, String cep,
             String email, String telefone1, String telefone2) {
-        super();
+        this.setId(id);
         this.setNome(nome);
         this.setLogradouro(logradouro);
         this.setBairro_localidade(bairro_localidade);
