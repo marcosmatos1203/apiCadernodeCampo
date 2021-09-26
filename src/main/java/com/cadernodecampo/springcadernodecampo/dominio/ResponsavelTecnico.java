@@ -1,6 +1,20 @@
 package com.cadernodecampo.springcadernodecampo.dominio;
 
-public class ResponsavelTecnico {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class ResponsavelTecnico implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
     private String nome;
     private String logradouro;
@@ -12,6 +26,81 @@ public class ResponsavelTecnico {
     private String telefone1;
     private String telefone2;
 
+    public ResponsavelTecnico(String nome, String logradouro, String bairro_localidade, String cidade, String estado,
+            String cep, String email, String telefone1, String telefone2) {
+        this.setNome(nome);
+        this.setLogradouro(logradouro);
+        this.setBairro_localidade(bairro_localidade);
+        this.setCidade(cidade);
+        this.setEstado(estado);
+        this.setCep(cep);
+        this.setEmail(email);
+        this.setTelefone1(telefone1);
+        this.setTelefone2(telefone2);
+    }
+    public String getTelefone2() {
+        return telefone2;
+    }
+    public void setTelefone2(String telefone2) {
+        this.telefone2 = telefone2;
+    }
+    public String getTelefone1() {
+        return telefone1;
+    }
+    public void setTelefone1(String telefone1) {
+        this.telefone1 = telefone1;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getCep() {
+        return cep;
+    }
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+    public String getEstado() {
+        return estado;
+    }
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    public String getCidade() {
+        return cidade;
+    }
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+    public String getBairro_localidade() {
+        return bairro_localidade;
+    }
+    public void setBairro_localidade(String bairro_localidade) {
+        this.bairro_localidade = bairro_localidade;
+    }
+    public String getLogradouro() {
+        return logradouro;
+    }
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    public ResponsavelTecnico() {
+        super();
+    }
     @Override
     public int hashCode(){
         final int prime = 31;
@@ -35,4 +124,5 @@ public class ResponsavelTecnico {
             return false;
         return true;
     }
+    
 }

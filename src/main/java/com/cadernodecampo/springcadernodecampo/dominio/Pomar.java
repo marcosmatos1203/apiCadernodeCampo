@@ -1,6 +1,22 @@
 package com.cadernodecampo.springcadernodecampo.dominio;
 
-public class Pomar {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Pomar implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
     private String nome;
     private String logradouro;
@@ -9,7 +25,13 @@ public class Pomar {
     private String estado;
     private String cep;
 
+    @ManyToOne()
+    @JoinColumn(name = "idProdutor")
     private Produtor produtor;
+
+    @ManyToOne()
+    @JoinColumn(name = "idRespTecnico")
+    private ResponsavelTecnico respTecnico;
 
     public Pomar(String nome, String logradouro, String bairro_localidade, String cidade, String estado, String cep,
             Produtor produtor) {
@@ -21,13 +43,23 @@ public class Pomar {
         this.setCep(cep);
         this.setProdutor(produtor);
     }
+
+    public ResponsavelTecnico getRespTecnico() {
+        return respTecnico;
+    }
+
+    public void setRespTecnico(ResponsavelTecnico respTecnico) {
+        this.respTecnico = respTecnico;
+    }
+
     @Override
-    public int hashCode(){
+    public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result +((id == null)? 0:id.hashCode());
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
         return result;
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -44,58 +76,73 @@ public class Pomar {
             return false;
         return true;
     }
+
     public String getCep() {
         return cep;
     }
+
     public void setCep(String cep) {
         this.cep = cep;
     }
+
     public String getEstado() {
         return estado;
     }
+
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
     public String getCidade() {
         return cidade;
     }
+
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
+
     public String getBairro_localidade() {
         return bairro_localidade;
     }
+
     public void setBairro_localidade(String bairro_localidade) {
         this.bairro_localidade = bairro_localidade;
     }
+
     public String getLogradouro() {
         return logradouro;
     }
+
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
     }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
+
     public Pomar() {
         super();
     }
+
     public Produtor getProdutor() {
         return produtor;
     }
+
     public void setProdutor(Produtor produtor) {
         this.produtor = produtor;
     }
-    
-
 
 }

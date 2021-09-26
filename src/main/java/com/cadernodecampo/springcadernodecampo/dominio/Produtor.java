@@ -1,8 +1,23 @@
 package com.cadernodecampo.springcadernodecampo.dominio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Produtor {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Produtor implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
     private String nome;
     private String logradouro;
@@ -14,17 +29,18 @@ public class Produtor {
     private String telefone1;
     private String telefone2;
 
-    private ArrayList<Pomar> pomares = new ArrayList<>();
+    @OneToMany(mappedBy = "produtor")
+    private List<Pomar> pomares = new ArrayList<>();
 
     public Produtor() {
         super();
     }
 
-    public ArrayList<Pomar> getPomares() {
+    public List<Pomar> getPomares() {
         return pomares;
     }
 
-    public void setPomares(ArrayList<Pomar> pomares) {
+    public void setPomares(List<Pomar> pomares) {
         this.pomares = pomares;
     }
 
