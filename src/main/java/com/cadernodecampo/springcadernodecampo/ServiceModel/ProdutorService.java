@@ -5,10 +5,12 @@ import java.util.Optional;
 
 import com.cadernodecampo.springcadernodecampo.DTO.ProdutorDTO;
 import com.cadernodecampo.springcadernodecampo.DominioModel.Produtor;
+import com.cadernodecampo.springcadernodecampo.Exceptions.DataIntegrityViolation;
 import com.cadernodecampo.springcadernodecampo.Exceptions.ObjectNotFoundException;
 import com.cadernodecampo.springcadernodecampo.RepositoryModel.ProdutorRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,7 +21,7 @@ public class ProdutorService {
     
     public Produtor findById(Integer id){
         Optional<Produtor> obj = produtorRepository.findById(id);
-        return obj.orElseThrow(()-> new ObjectNotFoundException("Item não encontrado! Id: "+id+", tipo: "+Produtor.class.getName()));
+        return obj.orElseThrow(()-> new ObjectNotFoundException("Produtor não encontrado! Id: "+id+", tipo: "+Produtor.class.getName()));
     }
 
     public List<Produtor> findAll(){
@@ -50,6 +52,11 @@ public class ProdutorService {
 
     public void delete(Integer id) {
         this.findById(id);
-        produtorRepository.deleteById(id);
+        try {
+            produtorRepository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityViolation("Produtor não pode ser deletado! Possui pomares associados.")
+        }
+        
     }
 }
