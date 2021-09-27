@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-@RequestMapping(value = "/produtores")
+@RequestMapping(value = "/produtor")
 public class ProdutorController {
 
     @Autowired

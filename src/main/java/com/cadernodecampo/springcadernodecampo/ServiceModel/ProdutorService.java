@@ -55,7 +55,7 @@ public class ProdutorService {
         try {
             produtorRepository.deleteById(id);
         } catch (DataIntegrityViolationException e) {
-            throw new DataIntegrityViolation("Produtor não pode ser deletado! Possui pomares associados.")
+            throw new DataIntegrityViolation("Produtor não pode ser deletado! Possui pomares associados.");
         }
         
     }
