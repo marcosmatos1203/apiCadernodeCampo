@@ -4,6 +4,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import com.cadernodecampo.springcadernodecampo.DTO.ProdutorDTO;
 import com.cadernodecampo.springcadernodecampo.DominioModel.Produtor;
 import com.cadernodecampo.springcadernodecampo.ServiceModel.ProdutorService;
@@ -42,14 +44,14 @@ public class ProdutorController {
     }
 
     @PostMapping
-    public ResponseEntity<Produtor> create(@RequestBody Produtor obj) {
+    public ResponseEntity<Produtor> create(@Valid @RequestBody Produtor obj) {
         obj = produtorService.create(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ProdutorDTO> update(@PathVariable Integer id, @RequestBody ProdutorDTO objDTO) {
+    public ResponseEntity<ProdutorDTO> update(@Valid @PathVariable Integer id, @RequestBody ProdutorDTO objDTO) {
         Produtor newObj = produtorService.update(id, objDTO);
 
         return ResponseEntity.ok().body(new ProdutorDTO(newObj));

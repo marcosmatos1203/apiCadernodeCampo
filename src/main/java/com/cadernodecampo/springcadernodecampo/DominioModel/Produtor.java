@@ -9,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Produtor implements Serializable {
@@ -17,16 +20,42 @@ public class Produtor implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer id;
+    
+    @NotEmpty(message = "O nome não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O nome deve ter entre 3 e 60 caracteres")
     private String nome;
+
+    @NotEmpty(message = "O logradouro não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O logradouro deve ter entre 3 e 60 caracteres")
     private String logradouro;
+
+    @NotEmpty(message = "O bairro/localidade não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O bairro/localidade deve ter entre 3 e 60 caracteres")
     private String bairro_localidade;
+
+    @NotEmpty(message = "O cidade não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O cidade deve ter entre 3 e 60 caracteres")
     private String cidade;
+
+    @NotEmpty(message = "O estado não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O estado deve ter entre 3 e 60 caracteres")
     private String estado;
+
+    @NotEmpty(message = "O cep não pode ser nulo")
+    @Length(min = 8, max = 8,message = "O cep deve ter entre 8 caracteres")
     private String cep;
+
+    @NotEmpty(message = "O email não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O email deve ter entre 3 e 60 caracteres")
     private String email;
+
+    @NotEmpty(message = "O telefone não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O telefone deve ter entre 8 e 15 caracteres")
     private String telefone1;
+
+    @NotEmpty(message = "O celular não pode ser nulo")
+    @Length(min = 8, max = 15,message = "O celular deve ter entre 8 e 15 caracteres")
     private String telefone2;
 
     @OneToMany(mappedBy = "produtor")

@@ -2,19 +2,45 @@ package com.cadernodecampo.springcadernodecampo.DTO;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.cadernodecampo.springcadernodecampo.DominioModel.Pomar;
+
+import org.hibernate.validator.constraints.Length;
 
 public class PomarDTO implements Serializable{
     private static final long serialVersionUID = 1L;
 
     private Integer id;
+
+    @NotEmpty(message = "O nome não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O nome deve ter entre 3 e 60 caracteres")
     private String nome;
+    
+    @NotEmpty(message = "O logradouro não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O logradouro deve ter entre 3 e 60 caracteres")
     private String logradouro;
+
+    @NotEmpty(message = "O bairro/localidade não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O bairro/localidade deve ter entre 3 e 60 caracteres")
     private String bairro_localidade;
+
+    @NotEmpty(message = "O cidade não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O cidade deve ter entre 3 e 60 caracteres")
     private String cidade;
+
+    @NotEmpty(message = "O estado não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O estado deve ter entre 3 e 60 caracteres")
     private String estado;
+
+    @NotEmpty(message = "O cep não pode ser nulo")
+    @Length(min = 8, max = 8,message = "O cep deve ter entre 8 caracteres")
     private String cep;
+
+    @NotEmpty(message = "O nome não pode ser nulo")
     private Integer id_produtor;
+
+    @NotEmpty(message = "O nome não pode ser nulo")
     private Integer id_resp_tecnico;
 
     public PomarDTO(Pomar obj) {

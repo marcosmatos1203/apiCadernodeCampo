@@ -3,6 +3,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import com.cadernodecampo.springcadernodecampo.DTO.ResponsavelTecnicoDTO;
 import com.cadernodecampo.springcadernodecampo.DominioModel.ResponsavelTecnico;
 import com.cadernodecampo.springcadernodecampo.ServiceModel.ResponsavelTecnicoService;
@@ -41,14 +43,14 @@ public class ResponsavelTecnicoController {
         return ResponseEntity.ok().body(listaResponsavelTecnicoDTO);
     }
     @PostMapping
-    public ResponseEntity<ResponsavelTecnico> create(@RequestBody ResponsavelTecnico obj) {
+    public ResponseEntity<ResponsavelTecnico> create(@Valid @RequestBody ResponsavelTecnico obj) {
         obj = service.create(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ResponsavelTecnicoDTO> update(@PathVariable Integer id, @RequestBody ResponsavelTecnicoDTO objDTO) {
+    public ResponseEntity<ResponsavelTecnicoDTO> update(@Valid @PathVariable Integer id, @RequestBody ResponsavelTecnicoDTO objDTO) {
         ResponsavelTecnico newObj = service.update(id, objDTO);
 
         return ResponseEntity.ok().body(new ResponsavelTecnicoDTO(newObj));

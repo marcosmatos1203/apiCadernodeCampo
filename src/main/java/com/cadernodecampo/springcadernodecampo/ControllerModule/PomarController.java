@@ -4,6 +4,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import com.cadernodecampo.springcadernodecampo.DTO.PomarDTO;
 import com.cadernodecampo.springcadernodecampo.DominioModel.Pomar;
 import com.cadernodecampo.springcadernodecampo.ServiceModel.PomarService;
@@ -45,17 +47,17 @@ public class PomarController {
     }
 
     @PutMapping(value = "/id")
-    public ResponseEntity<Pomar> update(@PathVariable Integer id, @RequestBody Pomar obj) {
+    public ResponseEntity<Pomar> update(@Valid @PathVariable Integer id, @RequestBody Pomar obj) {
         Pomar newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
     @PatchMapping(value = "/id")
-    public ResponseEntity<Pomar> updatePatch(@PathVariable Integer id, @RequestBody Pomar obj) {
+    public ResponseEntity<Pomar> updatePatch(@Valid @PathVariable Integer id, @RequestBody Pomar obj) {
         Pomar newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
     @PostMapping
-    public ResponseEntity<Pomar> create(@RequestParam(defaultValue = "0") Integer id_produtor, @RequestBody Pomar obj){
+    public ResponseEntity<Pomar> create(@Valid @RequestParam(defaultValue = "0") Integer id_produtor, @RequestBody Pomar obj){
         Pomar newObj = service.create(id_produtor, obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/pomar/{id}").buildAndExpand(newObj.getId()).toUri();
         return ResponseEntity.created(uri).build();
