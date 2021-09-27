@@ -28,6 +28,7 @@ public class ResponsavelTecnico implements Serializable {
     private String email;
     private String telefone1;
     private String telefone2;
+    
     @OneToMany(mappedBy = "respTecnico")
     private List<Pomar> pomares = new ArrayList<>();
 
