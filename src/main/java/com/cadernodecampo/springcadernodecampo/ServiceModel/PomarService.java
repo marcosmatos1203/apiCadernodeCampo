@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cadernodecampo.springcadernodecampo.DominioModel.Pomar;
+import com.cadernodecampo.springcadernodecampo.DominioModel.Produtor;
 import com.cadernodecampo.springcadernodecampo.Exceptions.ObjectNotFoundException;
 import com.cadernodecampo.springcadernodecampo.RepositoryModel.PomarRepository;
 
@@ -44,5 +45,17 @@ public class PomarService {
         newObj.setCep(obj.getCep());
         newObj.setProdutor(obj.getProdutor());
         newObj.setRespTecnico(obj.getRespTecnico());
+    }
+
+    public Pomar create(Integer id_produtor, Pomar obj) {
+        obj.setId(null);
+        Produtor produtor = produtorService.findById(id_produtor);
+        obj.setProdutor(produtor);
+        return repository.save(obj);
+    }
+
+    public void delete(Integer id) {
+        Pomar obj = findById(id);
+        repository.delete(obj);
     }
 }
