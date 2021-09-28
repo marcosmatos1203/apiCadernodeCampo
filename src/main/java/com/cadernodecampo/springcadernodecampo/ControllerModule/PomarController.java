@@ -41,10 +41,12 @@ public class PomarController {
 
     @GetMapping
     public ResponseEntity<List<PomarDTO>> findAll(
-            @RequestParam(value = "produtor", defaultValue = "0") Integer idprod) {
-        List<Pomar> listaPomar = service.findAll(idprod);
+            @RequestParam(value = "produtor", defaultValue = "0") Integer id_produtor) {
+        List<Pomar> listaPomar = service.findAll(id_produtor);
         List<PomarDTO> listaPomarDTO = listaPomar.stream().map(obj -> new PomarDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listaPomarDTO);
+
+        
     }
 
     @PutMapping(value = "/id")
