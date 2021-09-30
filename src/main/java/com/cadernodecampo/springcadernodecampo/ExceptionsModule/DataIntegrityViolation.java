@@ -1,4 +1,4 @@
-package com.cadernodecampo.springcadernodecampo.Exceptions;
+package com.cadernodecampo.springcadernodecampo.ExceptionsModule;
 
 public class DataIntegrityViolation extends RuntimeException{
     private static final long serialVersionUID = 1L;

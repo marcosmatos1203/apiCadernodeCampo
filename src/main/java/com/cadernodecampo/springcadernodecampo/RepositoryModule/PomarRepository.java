@@ -1,8 +1,8 @@
-package com.cadernodecampo.springcadernodecampo.RepositoryModel;
+package com.cadernodecampo.springcadernodecampo.RepositoryModule;
 
 import java.util.List;
 
-import com.cadernodecampo.springcadernodecampo.DominioModel.Pomar;
+import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

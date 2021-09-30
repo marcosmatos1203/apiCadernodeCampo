@@ -1,13 +1,13 @@
-package com.cadernodecampo.springcadernodecampo.ServiceModel;
+package com.cadernodecampo.springcadernodecampo.ServiceModule;
 
 import java.util.Arrays;
 
-import com.cadernodecampo.springcadernodecampo.DominioModel.Pomar;
-import com.cadernodecampo.springcadernodecampo.DominioModel.Produtor;
-import com.cadernodecampo.springcadernodecampo.DominioModel.ResponsavelTecnico;
-import com.cadernodecampo.springcadernodecampo.RepositoryModel.PomarRepository;
-import com.cadernodecampo.springcadernodecampo.RepositoryModel.ProdutorRepository;
-import com.cadernodecampo.springcadernodecampo.RepositoryModel.ResponsavelTecnicoRepository;
+import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
+import com.cadernodecampo.springcadernodecampo.DominioModule.Produtor;
+import com.cadernodecampo.springcadernodecampo.DominioModule.ResponsavelTecnico;
+import com.cadernodecampo.springcadernodecampo.RepositoryModule.PomarRepository;
+import com.cadernodecampo.springcadernodecampo.RepositoryModule.ProdutorRepository;
+import com.cadernodecampo.springcadernodecampo.RepositoryModule.ResponsavelTecnicoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

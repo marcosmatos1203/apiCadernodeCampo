@@ -1,6 +1,6 @@
-package com.cadernodecampo.springcadernodecampo.RepositoryModel;
+package com.cadernodecampo.springcadernodecampo.RepositoryModule;
 
-import com.cadernodecampo.springcadernodecampo.DominioModel.ResponsavelTecnico;
+import com.cadernodecampo.springcadernodecampo.DominioModule.ResponsavelTecnico;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,6 +1,6 @@
-package com.cadernodecampo.springcadernodecampo.ConfigModel;
+package com.cadernodecampo.springcadernodecampo.ConfigModule;
 
-import com.cadernodecampo.springcadernodecampo.ServiceModel.DBService;
+import com.cadernodecampo.springcadernodecampo.ServiceModule.DBService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,13 +1,13 @@
-package com.cadernodecampo.springcadernodecampo.ServiceModel;
+package com.cadernodecampo.springcadernodecampo.ServiceModule;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.cadernodecampo.springcadernodecampo.DTO.ResponsavelTecnicoDTO;
-import com.cadernodecampo.springcadernodecampo.DominioModel.ResponsavelTecnico;
-import com.cadernodecampo.springcadernodecampo.Exceptions.DataIntegrityViolation;
-import com.cadernodecampo.springcadernodecampo.Exceptions.ObjectNotFoundException;
-import com.cadernodecampo.springcadernodecampo.RepositoryModel.ResponsavelTecnicoRepository;
+import com.cadernodecampo.springcadernodecampo.DTOmodule.ResponsavelTecnicoDTO;
+import com.cadernodecampo.springcadernodecampo.DominioModule.ResponsavelTecnico;
+import com.cadernodecampo.springcadernodecampo.ExceptionsModule.DataIntegrityViolation;
+import com.cadernodecampo.springcadernodecampo.ExceptionsModule.ObjectNotFoundException;
+import com.cadernodecampo.springcadernodecampo.RepositoryModule.ResponsavelTecnicoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -21,7 +21,7 @@ public class ResponsavelTecnicoService {
 
     public ResponsavelTecnico findById(Integer id){
         Optional<ResponsavelTecnico> obj = repository.findById(id);
-        return obj.orElseThrow(()-> new ObjectNotFoundException("Responsável Técnico não encontrado! Id: " +id+", tipo: "+ ResponsavelTecnico.class.getName()));
+        return obj.orElseThrow(()-> new ObjectNotFoundException("Objeto não encontrado! Id: " +id+", tipo: "+ ResponsavelTecnico.class.getName()));
     }
     public List<ResponsavelTecnico> findAll(){
         return repository.findAll();

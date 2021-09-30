@@ -1,10 +1,10 @@
-package com.cadernodecampo.springcadernodecampo.DTO;
+package com.cadernodecampo.springcadernodecampo.DTOmodule;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-import com.cadernodecampo.springcadernodecampo.DominioModel.Produtor;
+import com.cadernodecampo.springcadernodecampo.DominioModule.Produtor;
 
 import org.hibernate.validator.constraints.Length;
 

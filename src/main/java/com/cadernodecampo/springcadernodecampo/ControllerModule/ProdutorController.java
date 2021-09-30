@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import com.cadernodecampo.springcadernodecampo.DTO.ProdutorDTO;
-import com.cadernodecampo.springcadernodecampo.DominioModel.Produtor;
-import com.cadernodecampo.springcadernodecampo.ServiceModel.ProdutorService;
+import com.cadernodecampo.springcadernodecampo.DTOmodule.ProdutorDTO;
+import com.cadernodecampo.springcadernodecampo.DominioModule.Produtor;
+import com.cadernodecampo.springcadernodecampo.ServiceModule.ProdutorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -2,7 +2,7 @@ package com.cadernodecampo.springcadernodecampo.ControllerExceptionModule;
 
 import javax.servlet.ServletRequest;
 
-import com.cadernodecampo.springcadernodecampo.Exceptions.ObjectNotFoundException;
+import com.cadernodecampo.springcadernodecampo.ExceptionsModule.ObjectNotFoundException;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;

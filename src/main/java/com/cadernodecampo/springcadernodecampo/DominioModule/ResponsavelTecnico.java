@@ -1,21 +1,20 @@
-package com.cadernodecampo.springcadernodecampo.DominioModel;
+package com.cadernodecampo.springcadernodecampo.DominioModule;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-public class Pomar implements Serializable {
+public class ResponsavelTecnico implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -26,7 +25,7 @@ public class Pomar implements Serializable {
     @NotEmpty(message = "O nome não pode ser nulo")
     @Length(min = 3, max = 60,message = "O nome deve ter entre 3 e 60 caracteres")
     private String nome;
-    
+
     @NotEmpty(message = "O logradouro não pode ser nulo")
     @Length(min = 3, max = 60,message = "O logradouro deve ter entre 3 e 60 caracteres")
     private String logradouro;
@@ -47,18 +46,23 @@ public class Pomar implements Serializable {
     @Length(min = 8, max = 8,message = "O cep deve ter entre 8 caracteres")
     private String cep;
 
-    @JsonIgnore
-    @ManyToOne()
-    @JoinColumn(name = "idProdutor")
-    private Produtor produtor;
+    @NotEmpty(message = "O email não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O email deve ter entre 3 e 60 caracteres")
+    private String email;
 
-    @JsonIgnore
-    @ManyToOne()
-    @JoinColumn(name = "idRespTecnico")
-    private ResponsavelTecnico respTecnico;
+    @NotEmpty(message = "O telefone não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O telefone deve ter entre 8 e 15 caracteres")
+    private String telefone1;
 
-    public Pomar(Integer id, String nome, String logradouro, String bairro_localidade, String cidade, String estado,
-            String cep, Produtor produtor, ResponsavelTecnico respTecnico) {
+    @NotEmpty(message = "O celular não pode ser nulo")
+    @Length(min = 8, max = 15,message = "O celular deve ter entre 8 e 15 caracteres")
+    private String telefone2;
+
+    @OneToMany(mappedBy = "respTecnico")
+    private List<Pomar> pomares = new ArrayList<>();
+
+    public ResponsavelTecnico(Integer id, String nome, String logradouro, String bairro_localidade, String cidade,
+            String estado, String cep, String email, String telefone1, String telefone2) {
         this.setId(id);
         this.setNome(nome);
         this.setLogradouro(logradouro);
@@ -66,41 +70,41 @@ public class Pomar implements Serializable {
         this.setCidade(cidade);
         this.setEstado(estado);
         this.setCep(cep);
-        this.setProdutor(produtor);
-        this.setRespTecnico(respTecnico);
+        this.setEmail(email);
+        this.setTelefone1(telefone1);
+        this.setTelefone2(telefone2);
     }
 
-    public ResponsavelTecnico getRespTecnico() {
-        return respTecnico;
+    public List<Pomar> getPomares() {
+        return pomares;
     }
 
-    public void setRespTecnico(ResponsavelTecnico respTecnico) {
-        this.respTecnico = respTecnico;
+    public void setPomares(List<Pomar> pomares) {
+        this.pomares = pomares;
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        return result;
+    public String getTelefone2() {
+        return telefone2;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Pomar other = (Pomar) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        return true;
+    public void setTelefone2(String telefone2) {
+        this.telefone2 = telefone2;
+    }
+
+    public String getTelefone1() {
+        return telefone1;
+    }
+
+    public void setTelefone1(String telefone1) {
+        this.telefone1 = telefone1;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getCep() {
@@ -159,16 +163,33 @@ public class Pomar implements Serializable {
         this.id = id;
     }
 
-    public Pomar() {
+    public ResponsavelTecnico() {
         super();
     }
 
-    public Produtor getProdutor() {
-        return produtor;
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
     }
 
-    public void setProdutor(Produtor produtor) {
-        this.produtor = produtor;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ResponsavelTecnico other = (ResponsavelTecnico) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
     }
 
 }

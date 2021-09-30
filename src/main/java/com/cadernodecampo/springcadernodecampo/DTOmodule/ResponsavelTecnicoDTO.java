@@ -1,14 +1,14 @@
-package com.cadernodecampo.springcadernodecampo.DTO;
+package com.cadernodecampo.springcadernodecampo.DTOmodule;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
-import com.cadernodecampo.springcadernodecampo.DominioModel.Pomar;
+import com.cadernodecampo.springcadernodecampo.DominioModule.ResponsavelTecnico;
 
 import org.hibernate.validator.constraints.Length;
 
-public class PomarDTO implements Serializable{
+public class ResponsavelTecnicoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer id;
@@ -16,7 +16,7 @@ public class PomarDTO implements Serializable{
     @NotEmpty(message = "O nome não pode ser nulo")
     @Length(min = 3, max = 60,message = "O nome deve ter entre 3 e 60 caracteres")
     private String nome;
-    
+
     @NotEmpty(message = "O logradouro não pode ser nulo")
     @Length(min = 3, max = 60,message = "O logradouro deve ter entre 3 e 60 caracteres")
     private String logradouro;
@@ -34,16 +34,23 @@ public class PomarDTO implements Serializable{
     private String estado;
 
     @NotEmpty(message = "O cep não pode ser nulo")
-    @Length(min = 8, max = 8,message = "O cep deve ter entre 8 caracteres")
+    @Length(min = 8, max = 8,message = "O nome deve ter 8 caracteres")
     private String cep;
 
-    @NotEmpty(message = "O nome não pode ser nulo")
-    private Integer id_produtor;
+    @NotEmpty(message = "O email não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O email deve ter entre 3 e 60 caracteres")
+    private String email;
 
-    @NotEmpty(message = "O nome não pode ser nulo")
-    private Integer id_resp_tecnico;
+    @NotEmpty(message = "O telefone não pode ser nulo")
+    @Length(min = 8, max = 14,message = "O telefone deve ter entre 8 e 14 caracteres")
+    private String telefone1;
 
-    public PomarDTO(Pomar obj) {
+    @NotEmpty(message = "O celular não pode ser nulo")
+    @Length(min = 3, max = 60,message = "O celular deve ter entre 8 e 15 caracteres")
+    private String telefone2;
+
+
+    public ResponsavelTecnicoDTO(ResponsavelTecnico obj) {
         this.id = obj.getId();
         this.nome = obj.getNome();
         this.logradouro = obj.getLogradouro();
@@ -51,32 +58,16 @@ public class PomarDTO implements Serializable{
         this.cidade = obj.getCidade();
         this.estado = obj.getEstado();
         this.cep = obj.getCep();
-        this.id_produtor = obj.getProdutor().getId();
-        this.id_resp_tecnico = obj.getRespTecnico().getId();
+        this.email = obj.getEmail();
+        this.telefone1 = obj.getTelefone1();
+        this.telefone2 = obj.getTelefone2();
     }
-   
-    
-    public Integer getId_resp_tecnico() {
-        return id_resp_tecnico;
-    }
-
-
-    public void setId_resp_tecnico(Integer id_resp_tecnico) {
-        this.id_resp_tecnico = id_resp_tecnico;
-    }
-
-
-    public Integer getId_produtor() {
-        return id_produtor;
-    }
-    public void setId_produtor(Integer id_produtor) {
-        this.id_produtor = id_produtor;
-    }
-    public PomarDTO() {
+    public ResponsavelTecnicoDTO() {
         super();
     }
-    public String getCep() {
-        return cep;
+    
+    public String getTelefone2() {
+        return telefone2;
     }
     public Integer getId() {
         return id;
@@ -114,8 +105,26 @@ public class PomarDTO implements Serializable{
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    public String getCep() {
+        return cep;
+    }
     public void setCep(String cep) {
         this.cep = cep;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getTelefone1() {
+        return telefone1;
+    }
+    public void setTelefone1(String telefone1) {
+        this.telefone1 = telefone1;
+    }
+    public void setTelefone2(String telefone2) {
+        this.telefone2 = telefone2;
     }
     @Override
     public int hashCode() {
@@ -132,7 +141,7 @@ public class PomarDTO implements Serializable{
             return false;
         if (getClass() != obj.getClass())
             return false;
-        PomarDTO other = (PomarDTO) obj;
+        ResponsavelTecnicoDTO other = (ResponsavelTecnicoDTO) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -140,4 +149,5 @@ public class PomarDTO implements Serializable{
             return false;
         return true;
     }
+    
 }

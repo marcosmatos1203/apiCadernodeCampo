@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import com.cadernodecampo.springcadernodecampo.DTOmodule.PomarDTO;
-import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
-import com.cadernodecampo.springcadernodecampo.ServiceModule.PomarService;
+import com.cadernodecampo.springcadernodecampo.DTOmodule.QuadraDTO;
+import com.cadernodecampo.springcadernodecampo.DominioModule.Quadra;
+import com.cadernodecampo.springcadernodecampo.ServiceModule.QuadraService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,42 +27,42 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/pomar")
-public class PomarController {
+@RequestMapping(value = "/quadra")
 
+public class QuadraController {
     @Autowired
-    private PomarService service;
+    private QuadraService service;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Pomar> findById(@PathVariable Integer id) {
-        Pomar obj = service.findById(id);
+    public ResponseEntity<Quadra> findById(@PathVariable Integer id) {
+        Quadra obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 
     @GetMapping
-    public ResponseEntity<List<PomarDTO>> findAll(
-            @RequestParam(value = "produtor", defaultValue = "0") Integer id_produtor) {
-        List<Pomar> listaPomar = service.findAll(id_produtor);
-        List<PomarDTO> listaPomarDTO = listaPomar.stream().map(obj -> new PomarDTO(obj)).collect(Collectors.toList());
-        return ResponseEntity.ok().body(listaPomarDTO);
+    public ResponseEntity<List<QuadraDTO>> findAll(
+            @RequestParam(value = "pomar", defaultValue = "0") Integer id_produtor) {
+        List<Quadra> listaQuadra = service.findAll(id_produtor);
+        List<QuadraDTO> listaQuadraDTO = listaQuadra.stream().map(obj -> new QuadraDTO(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listaQuadraDTO);
 
         
     }
 
     @PutMapping(value = "/id")
-    public ResponseEntity<Pomar> update(@Valid @PathVariable Integer id, @RequestBody Pomar obj) {
-        Pomar newObj = service.update(id, obj);
+    public ResponseEntity<Quadra> update(@Valid @PathVariable Integer id, @RequestBody Quadra obj) {
+        Quadra newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
     @PatchMapping(value = "/id")
-    public ResponseEntity<Pomar> updatePatch(@Valid @PathVariable Integer id, @RequestBody Pomar obj) {
-        Pomar newObj = service.update(id, obj);
+    public ResponseEntity<Quadra> updatePatch(@Valid @PathVariable Integer id, @RequestBody Quadra obj) {
+        Quadra newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
     @PostMapping
-    public ResponseEntity<Pomar> create(@Valid @RequestParam(defaultValue = "0") Integer id_produtor, @RequestBody Pomar obj){
-        Pomar newObj = service.create(id_produtor, obj);
-        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/pomar/{id}").buildAndExpand(newObj.getId()).toUri();
+    public ResponseEntity<Quadra> create(@Valid @RequestParam(defaultValue = "0") Integer id_pomar, @RequestBody Quadra obj){
+        Quadra newObj = service.create(id_pomar, obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/quadra/{id}").buildAndExpand(newObj.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
     @DeleteMapping(value = "/{id}")
@@ -70,5 +70,4 @@ public class PomarController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-
 }

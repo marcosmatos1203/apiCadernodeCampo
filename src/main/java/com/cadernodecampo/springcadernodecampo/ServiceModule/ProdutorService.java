@@ -1,13 +1,13 @@
-package com.cadernodecampo.springcadernodecampo.ServiceModel;
+package com.cadernodecampo.springcadernodecampo.ServiceModule;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.cadernodecampo.springcadernodecampo.DTO.ProdutorDTO;
-import com.cadernodecampo.springcadernodecampo.DominioModel.Produtor;
-import com.cadernodecampo.springcadernodecampo.Exceptions.DataIntegrityViolation;
-import com.cadernodecampo.springcadernodecampo.Exceptions.ObjectNotFoundException;
-import com.cadernodecampo.springcadernodecampo.RepositoryModel.ProdutorRepository;
+import com.cadernodecampo.springcadernodecampo.DTOmodule.ProdutorDTO;
+import com.cadernodecampo.springcadernodecampo.DominioModule.Produtor;
+import com.cadernodecampo.springcadernodecampo.ExceptionsModule.DataIntegrityViolation;
+import com.cadernodecampo.springcadernodecampo.ExceptionsModule.ObjectNotFoundException;
+import com.cadernodecampo.springcadernodecampo.RepositoryModule.ProdutorRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -21,7 +21,7 @@ public class ProdutorService {
     
     public Produtor findById(Integer id){
         Optional<Produtor> obj = produtorRepository.findById(id);
-        return obj.orElseThrow(()-> new ObjectNotFoundException("Produtor não encontrado! Id: "+id+", tipo: "+Produtor.class.getName()));
+        return obj.orElseThrow(()-> new ObjectNotFoundException("Objeto não encontrado! Id: "+id+", tipo: "+Produtor.class.getName()));
     }
 
     public List<Produtor> findAll(){

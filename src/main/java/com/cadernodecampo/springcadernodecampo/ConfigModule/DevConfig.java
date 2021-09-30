@@ -1,6 +1,6 @@
-package com.cadernodecampo.springcadernodecampo.ConfigModel;
+package com.cadernodecampo.springcadernodecampo.ConfigModule;
 
-import com.cadernodecampo.springcadernodecampo.ServiceModel.DBService;
+import com.cadernodecampo.springcadernodecampo.ServiceModule.DBService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile("postgre")
-public class PostgreConfig {
+@Profile("dev")
+public class DevConfig {
     @Autowired
     private DBService dbService;
 

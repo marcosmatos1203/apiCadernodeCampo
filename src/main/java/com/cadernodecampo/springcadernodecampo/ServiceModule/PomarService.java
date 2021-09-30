@@ -1,14 +1,16 @@
-package com.cadernodecampo.springcadernodecampo.ServiceModel;
+package com.cadernodecampo.springcadernodecampo.ServiceModule;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.cadernodecampo.springcadernodecampo.DominioModel.Pomar;
-import com.cadernodecampo.springcadernodecampo.DominioModel.Produtor;
-import com.cadernodecampo.springcadernodecampo.Exceptions.ObjectNotFoundException;
-import com.cadernodecampo.springcadernodecampo.RepositoryModel.PomarRepository;
+import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
+import com.cadernodecampo.springcadernodecampo.DominioModule.Produtor;
+import com.cadernodecampo.springcadernodecampo.ExceptionsModule.DataIntegrityViolation;
+import com.cadernodecampo.springcadernodecampo.ExceptionsModule.ObjectNotFoundException;
+import com.cadernodecampo.springcadernodecampo.RepositoryModule.PomarRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,10 +21,10 @@ public class PomarService {
     @Autowired
     private ProdutorService produtorService;
 
-    public Pomar findById(Integer id_produtor) {
-        Optional<Pomar> obj = repository.findById(id_produtor);
+    public Pomar findById(Integer id) {
+        Optional<Pomar> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
-                "Pomar não encontrado! Id: " + id_produtor + ", tipo: " + Pomar.class.getName()));
+                "Objeto não encontrado! Id: " + id + ", tipo: " + Pomar.class.getName()));
     }
 
     public List<Pomar> findAll(Integer id_produtor) {
@@ -55,7 +57,11 @@ public class PomarService {
     }
 
     public void delete(Integer id) {
-        Pomar obj = findById(id);
-        repository.delete(obj);
+        this.findById(id);
+        try {
+            repository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityViolation("Pomar não pode ser deletado! Possui quadras associadas.");
+        }
     }
 }

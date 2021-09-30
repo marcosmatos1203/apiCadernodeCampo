@@ -1,4 +1,4 @@
-package com.cadernodecampo.springcadernodecampo.DominioModel;
+package com.cadernodecampo.springcadernodecampo.DominioModule;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,14 +14,14 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-public class ResponsavelTecnico implements Serializable {
+public class Produtor implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    
     @NotEmpty(message = "O nome não pode ser nulo")
     @Length(min = 3, max = 60,message = "O nome deve ter entre 3 e 60 caracteres")
     private String nome;
@@ -58,21 +58,11 @@ public class ResponsavelTecnico implements Serializable {
     @Length(min = 8, max = 15,message = "O celular deve ter entre 8 e 15 caracteres")
     private String telefone2;
 
-    @OneToMany(mappedBy = "respTecnico")
+    @OneToMany(mappedBy = "produtor")
     private List<Pomar> pomares = new ArrayList<>();
 
-    public ResponsavelTecnico(Integer id, String nome, String logradouro, String bairro_localidade, String cidade,
-            String estado, String cep, String email, String telefone1, String telefone2) {
-        this.setId(id);
-        this.setNome(nome);
-        this.setLogradouro(logradouro);
-        this.setBairro_localidade(bairro_localidade);
-        this.setCidade(cidade);
-        this.setEstado(estado);
-        this.setCep(cep);
-        this.setEmail(email);
-        this.setTelefone1(telefone1);
-        this.setTelefone2(telefone2);
+    public Produtor() {
+        super();
     }
 
     public List<Pomar> getPomares() {
@@ -163,8 +153,18 @@ public class ResponsavelTecnico implements Serializable {
         this.id = id;
     }
 
-    public ResponsavelTecnico() {
-        super();
+    public Produtor(Integer id,String nome, String logradouro, String bairro_localidade, String cidade, String estado, String cep,
+            String email, String telefone1, String telefone2) {
+        this.setId(id);
+        this.setNome(nome);
+        this.setLogradouro(logradouro);
+        this.setBairro_localidade(bairro_localidade);
+        this.setCidade(cidade);
+        this.setEstado(estado);
+        this.setCep(cep);
+        this.setEmail(email);
+        this.setTelefone1(telefone1);
+        this.setTelefone2(telefone2);
     }
 
     @Override
@@ -183,7 +183,7 @@ public class ResponsavelTecnico implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        ResponsavelTecnico other = (ResponsavelTecnico) obj;
+        Produtor other = (Produtor) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -191,5 +191,4 @@ public class ResponsavelTecnico implements Serializable {
             return false;
         return true;
     }
-
 }
