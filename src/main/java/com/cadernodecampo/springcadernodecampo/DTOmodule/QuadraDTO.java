@@ -2,16 +2,24 @@ package com.cadernodecampo.springcadernodecampo.DTOmodule;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.cadernodecampo.springcadernodecampo.DominioModule.Quadra;
 
 public class QuadraDTO implements Serializable{
+
     private static final long serialVersionUID = 1L;
 
     private Integer id;
+
     private Integer anoPlantio;
+
     private Integer distanciaFilas;
+
     private Integer distanciaPlantas;
+
     private Integer quantidadeColmeias;
+
     private Integer id_pomar;
 
     

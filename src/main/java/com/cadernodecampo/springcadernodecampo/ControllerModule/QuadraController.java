@@ -28,7 +28,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/quadra")
-
 public class QuadraController {
     @Autowired
     private QuadraService service;

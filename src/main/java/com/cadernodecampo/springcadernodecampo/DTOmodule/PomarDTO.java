@@ -37,10 +37,10 @@ public class PomarDTO implements Serializable{
     @Length(min = 8, max = 8,message = "O cep deve ter entre 8 caracteres")
     private String cep;
 
-    @NotEmpty(message = "O nome não pode ser nulo")
+    @NotEmpty(message = "O produtor não pode ser nulo")
     private Integer id_produtor;
 
-    @NotEmpty(message = "O nome não pode ser nulo")
+    @NotEmpty(message = "O responsável técnico não pode ser nulo")
     private Integer id_resp_tecnico;
 
     public PomarDTO(Pomar obj) {

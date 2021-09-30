@@ -1,6 +1,8 @@
 package com.cadernodecampo.springcadernodecampo.DominioModule;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -56,6 +59,17 @@ public class Pomar implements Serializable {
     @ManyToOne()
     @JoinColumn(name = "idRespTecnico")
     private ResponsavelTecnico respTecnico;
+
+    @OneToMany(mappedBy = "pomar")
+    private List<Quadra> quadras = new ArrayList<>();
+
+    public List<Quadra> getQuadras() {
+        return quadras;
+    }
+
+    public void setQuadras(List<Quadra> quadras) {
+        this.quadras = quadras;
+    }
 
     public Pomar(Integer id, String nome, String logradouro, String bairro_localidade, String cidade, String estado,
             String cep, Produtor produtor, ResponsavelTecnico respTecnico) {

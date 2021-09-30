@@ -2,6 +2,7 @@ package com.cadernodecampo.springcadernodecampo.DominioModule;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Entity
 public class Quadra implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -19,16 +21,12 @@ public class Quadra implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotEmpty(message = "O ano de plantio não pode ser nulo")
     private Integer anoPlantio;
 
-    @NotEmpty(message = "A distância entre filas não pode ser nulo")
     private Integer distanciaFilas;
 
-    @NotEmpty(message = "A distância entre plantas não pode ser nulo")
     private Integer distanciaPlantas;
 
-    @NotEmpty(message = "A quantidade de colméias não pode ser nula")
     private Integer quantidadeColmeias;
 
     @JsonIgnore
