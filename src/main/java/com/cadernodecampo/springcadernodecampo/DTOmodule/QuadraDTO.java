@@ -2,8 +2,6 @@ package com.cadernodecampo.springcadernodecampo.DTOmodule;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotEmpty;
-
 import com.cadernodecampo.springcadernodecampo.DominioModule.Quadra;
 
 public class QuadraDTO implements Serializable{

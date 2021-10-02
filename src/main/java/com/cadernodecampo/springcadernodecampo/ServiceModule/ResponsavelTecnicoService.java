@@ -23,6 +23,7 @@ public class ResponsavelTecnicoService {
         Optional<ResponsavelTecnico> obj = repository.findById(id);
         return obj.orElseThrow(()-> new ObjectNotFoundException("Objeto não encontrado! Id: " +id+", tipo: "+ ResponsavelTecnico.class.getName()));
     }
+
     public List<ResponsavelTecnico> findAll(){
         return repository.findAll();
     }
@@ -32,6 +33,7 @@ public class ResponsavelTecnicoService {
         return repository.save(obj);
 
     }
+    
     public ResponsavelTecnico update(Integer id, ResponsavelTecnicoDTO objDTO){
 
         ResponsavelTecnico obj = findById(id);

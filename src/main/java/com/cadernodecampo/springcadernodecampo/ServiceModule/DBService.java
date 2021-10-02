@@ -3,10 +3,12 @@ package com.cadernodecampo.springcadernodecampo.ServiceModule;
 import java.util.Arrays;
 
 import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
+import com.cadernodecampo.springcadernodecampo.DominioModule.PortaEnxerto;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Produtor;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Quadra;
 import com.cadernodecampo.springcadernodecampo.DominioModule.ResponsavelTecnico;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.PomarRepository;
+import com.cadernodecampo.springcadernodecampo.RepositoryModule.PortaEnxertoRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.ProdutorRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.QuadraRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.ResponsavelTecnicoRepository;
@@ -28,6 +30,9 @@ public class DBService {
 
         @Autowired
         private ResponsavelTecnicoRepository responsavelTecnicoRepository;
+
+        @Autowired
+        private PortaEnxertoRepository portaEnxertoRepository;
 
         public void InstanciaBaseDeDados() {
 
@@ -57,6 +62,9 @@ public class DBService {
 
                 Quadra quadra1 = new Quadra((Integer)null,2021,2,1,5,pomar1);
 
+                PortaEnxerto portaE = new PortaEnxerto((Integer)null, "porta enxerto 1");
+                PortaEnxerto portaE2 = new PortaEnxerto((Integer)null, "porta enxerto 2");
+
                 produtor1.getPomares().addAll(Arrays.asList(pomar1));
                 respTecnico1.getPomares().addAll(Arrays.asList(pomar1));
                 pomar1.getQuadras().addAll(Arrays.asList(quadra1));
@@ -65,7 +73,7 @@ public class DBService {
                 this.responsavelTecnicoRepository.saveAll(Arrays.asList(respTecnico1, respTecnico2));
                 this.pomarRepository.saveAll(Arrays.asList(pomar1, pomar2, pomar3, pomar4, pomar5));
                 this.quadraRepository.saveAll(Arrays.asList(quadra1));
-
+                this.portaEnxertoRepository.saveAll(Arrays.asList(portaE, portaE2));
         }
 
 }
