@@ -58,13 +58,13 @@ public class Produtor implements Serializable {
     @Length(min = 8, max = 15,message = "O celular deve ter entre 8 e 15 caracteres")
     private String telefone2;
 
-    @OneToMany(mappedBy = "produtor")
-    private List<Pomar> pomares = new ArrayList<>();
+   // @OneToMany(mappedBy = "produtor")
+   // private List<Pomar> pomares = new ArrayList<>();
 
     public Produtor() {
         super();
     }
-
+/*
     public List<Pomar> getPomares() {
         return pomares;
     }
@@ -72,7 +72,7 @@ public class Produtor implements Serializable {
     public void setPomares(List<Pomar> pomares) {
         this.pomares = pomares;
     }
-
+*/
     public String getTelefone2() {
         return telefone2;
     }

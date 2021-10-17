@@ -72,7 +72,7 @@ public class DBService {
 
                 Cultivar cultivar = new Cultivar((Integer)null, "cultivar 1");
 
-                produtor1.getPomares().addAll(Arrays.asList(pomar1));
+              //  produtor1.getPomares().addAll(Arrays.asList(pomar1));
                 respTecnico1.getPomares().addAll(Arrays.asList(pomar1));
                 pomar1.getQuadras().addAll(Arrays.asList(quadra1));
 
