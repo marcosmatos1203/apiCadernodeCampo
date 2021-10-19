@@ -80,6 +80,7 @@ public class DBService {
                 CultivarQuadra cultivarQuadra = new CultivarQuadra((Integer)null, portaE, quadra1, cultivar, 2);
                 CultivarQuadra cultivarQuadra2 = new CultivarQuadra((Integer)null, portaE2, quadra1, cultivar, 25);
 
+
                 pomar1.getQuadras().addAll(Arrays.asList(quadra1));
                 quadra1.cultivaresQuadra.addAll(Arrays.asList(cultivarQuadra));
 

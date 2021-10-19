@@ -61,15 +61,7 @@ public class Produtor implements Serializable {
     public Produtor() {
         super();
     }
-
-  //  public List<Pomar> getPomares() {
-  //      return pomares;
-  //  }
-
-   // public void setPomares(List<Pomar> pomares) {
-   //     this.pomares = pomares;
-    //}
-
+    
     public String getTelefone2() {
         return telefone2;
     }
