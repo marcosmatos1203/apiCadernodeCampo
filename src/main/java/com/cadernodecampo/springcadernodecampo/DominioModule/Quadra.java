@@ -1,6 +1,8 @@
 package com.cadernodecampo.springcadernodecampo.DominioModule;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -18,7 +21,7 @@ public class Quadra implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    public Integer id;
 
     private Integer anoPlantio;
 
@@ -32,6 +35,11 @@ public class Quadra implements Serializable {
     @ManyToOne()
     @JoinColumn(name = "idPomar")
     private Pomar pomar;
+    
+
+    @OneToMany(mappedBy = "quadra")
+    public List<CultivarQuadra> cultivaresQuadra = new ArrayList<>();
+
 
     public Quadra(Integer id, Integer anoPlantio, Integer distanciaFilas, Integer distanciaPlantas,
             Integer quantidadeColmeias, Pomar pomar) {

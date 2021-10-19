@@ -20,6 +20,9 @@ public class PomarService {
     private PomarRepository repository;
     @Autowired
     private ProdutorService produtorService;
+    @Autowired
+    private ResponsavelTecnicoService respTecnicoService;
+
 
     public Pomar findById(Integer id) {
         Optional<Pomar> obj = repository.findById(id);
@@ -31,6 +34,11 @@ public class PomarService {
         produtorService.findById(id_produtor);
         return repository.findAllByProdutor(id_produtor);
     }
+
+ //   public List<Pomar> findAllByRespTec(Integer id_respTecnico) {
+   //     respTecnicoService.findById(id_respTecnico);
+     //   return repository.findByRespTecnico(id_respTecnico);
+  //  }
 
     public Pomar update(Integer id, Pomar obj) {
         Pomar newObj = findById(id);

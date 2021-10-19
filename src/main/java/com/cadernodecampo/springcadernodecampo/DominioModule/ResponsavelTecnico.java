@@ -43,7 +43,7 @@ public class ResponsavelTecnico implements Serializable {
     private String estado;
 
     @NotEmpty(message = "O cep não pode ser nulo")
-    @Length(min = 8, max = 8,message = "O cep deve ter entre 8 caracteres")
+    @Length(min = 3, max = 15,message = "O cep deve ter entre 8 caracteres")
     private String cep;
 
     @NotEmpty(message = "O email não pode ser nulo")
@@ -55,12 +55,10 @@ public class ResponsavelTecnico implements Serializable {
     private String telefone1;
 
     @NotEmpty(message = "O celular não pode ser nulo")
-    @Length(min = 8, max = 15,message = "O celular deve ter entre 8 e 15 caracteres")
+    @Length(min = 3, max = 15,message = "O celular deve ter entre 8 e 15 caracteres")
     private String telefone2;
 
-    @OneToMany(mappedBy = "respTecnico")
-    private List<Pomar> pomares = new ArrayList<>();
-
+   
     public ResponsavelTecnico(Integer id, String nome, String logradouro, String bairro_localidade, String cidade,
             String estado, String cep, String email, String telefone1, String telefone2) {
         this.setId(id);
@@ -73,14 +71,6 @@ public class ResponsavelTecnico implements Serializable {
         this.setEmail(email);
         this.setTelefone1(telefone1);
         this.setTelefone2(telefone2);
-    }
-
-    public List<Pomar> getPomares() {
-        return pomares;
-    }
-
-    public void setPomares(List<Pomar> pomares) {
-        this.pomares = pomares;
     }
 
     public String getTelefone2() {

@@ -1,14 +1,11 @@
 package com.cadernodecampo.springcadernodecampo.DominioModule;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
@@ -43,7 +40,7 @@ public class Produtor implements Serializable {
     private String estado;
 
     @NotEmpty(message = "O cep não pode ser nulo")
-    @Length(min = 8, max = 8,message = "O cep deve ter entre 8 caracteres")
+    @Length(min = 3, max = 15,message = "O cep deve ter entre 8 caracteres")
     private String cep;
 
     @NotEmpty(message = "O email não pode ser nulo")
@@ -55,23 +52,23 @@ public class Produtor implements Serializable {
     private String telefone1;
 
     @NotEmpty(message = "O celular não pode ser nulo")
-    @Length(min = 8, max = 15,message = "O celular deve ter entre 8 e 15 caracteres")
+    @Length(min = 3, max = 15,message = "O celular deve ter entre 8 e 15 caracteres")
     private String telefone2;
 
-    @OneToMany(mappedBy = "produtor")
-    private List<Pomar> pomares = new ArrayList<>();
+   // @OneToMany(mappedBy = "produtor")
+   // private List<Pomar> pomares = new ArrayList<>();
 
     public Produtor() {
         super();
     }
 
-    public List<Pomar> getPomares() {
-        return pomares;
-    }
+  //  public List<Pomar> getPomares() {
+  //      return pomares;
+  //  }
 
-    public void setPomares(List<Pomar> pomares) {
-        this.pomares = pomares;
-    }
+   // public void setPomares(List<Pomar> pomares) {
+   //     this.pomares = pomares;
+    //}
 
     public String getTelefone2() {
         return telefone2;

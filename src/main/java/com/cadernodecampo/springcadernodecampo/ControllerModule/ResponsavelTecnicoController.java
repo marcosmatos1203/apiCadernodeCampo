@@ -48,7 +48,7 @@ public class ResponsavelTecnicoController {
     public ResponseEntity<ResponsavelTecnico> create(@Valid @RequestBody ResponsavelTecnico obj) {
         obj = service.create(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.created(uri).body(obj);
     }
 
     @PutMapping(value = "/{id}")

@@ -3,11 +3,13 @@ package com.cadernodecampo.springcadernodecampo.ServiceModule;
 import java.util.Arrays;
 
 import com.cadernodecampo.springcadernodecampo.DominioModule.Cultivar;
+import com.cadernodecampo.springcadernodecampo.DominioModule.CultivarQuadra;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
 import com.cadernodecampo.springcadernodecampo.DominioModule.PortaEnxerto;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Produtor;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Quadra;
 import com.cadernodecampo.springcadernodecampo.DominioModule.ResponsavelTecnico;
+import com.cadernodecampo.springcadernodecampo.RepositoryModule.CultivarQuadraRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.CultivarRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.PomarRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.PortaEnxertoRepository;
@@ -39,6 +41,9 @@ public class DBService {
         @Autowired
         private CultivarRepository cultivarRepository;
 
+        @Autowired
+        private CultivarQuadraRepository cultivarQuadraRepository;
+        
         public void InstanciaBaseDeDados() {
 
                 Produtor produtor1 = new Produtor((Integer) null, "Matheus", "Av das torres", "Guaruja", "Lages",
@@ -71,10 +76,12 @@ public class DBService {
                 PortaEnxerto portaE2 = new PortaEnxerto((Integer)null, "porta enxerto 2");
 
                 Cultivar cultivar = new Cultivar((Integer)null, "cultivar 1");
+                
+                CultivarQuadra cultivarQuadra = new CultivarQuadra((Integer)null, portaE, quadra1, cultivar, 2);
+                CultivarQuadra cultivarQuadra2 = new CultivarQuadra((Integer)null, portaE2, quadra1, cultivar, 25);
 
-                produtor1.getPomares().addAll(Arrays.asList(pomar1));
-                respTecnico1.getPomares().addAll(Arrays.asList(pomar1));
                 pomar1.getQuadras().addAll(Arrays.asList(quadra1));
+                quadra1.cultivaresQuadra.addAll(Arrays.asList(cultivarQuadra));
 
                 this.produtorRepository.saveAll(Arrays.asList(produtor1, produtor2));
                 this.responsavelTecnicoRepository.saveAll(Arrays.asList(respTecnico1, respTecnico2));
@@ -82,6 +89,7 @@ public class DBService {
                 this.quadraRepository.saveAll(Arrays.asList(quadra1));
                 this.portaEnxertoRepository.saveAll(Arrays.asList(portaE, portaE2));
                 this.cultivarRepository.saveAll(Arrays.asList(cultivar));
+                this.cultivarQuadraRepository.saveAll(Arrays.asList(cultivarQuadra));
+                this.cultivarQuadraRepository.saveAll(Arrays.asList(cultivarQuadra2));
         }
-
 }
