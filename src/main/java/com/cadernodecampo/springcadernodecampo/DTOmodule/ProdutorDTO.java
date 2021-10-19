@@ -37,7 +37,7 @@ public class ProdutorDTO implements Serializable{
     @NotEmpty(message = "O cep não pode ser nulo")
     @Length(min = 8, max = 8,message = "O nome deve ter 8 caracteres")
     private String cep;
-
+//teste
     @NotEmpty(message = "O email não pode ser nulo")
     @Length(min = 3, max = 60,message = "O email deve ter entre 3 e 60 caracteres")
     private String email;
