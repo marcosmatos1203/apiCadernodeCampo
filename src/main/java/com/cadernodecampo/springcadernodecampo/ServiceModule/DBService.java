@@ -53,11 +53,11 @@ public class DBService {
 
                 ResponsavelTecnico respTecnico1 = new ResponsavelTecnico((Integer) null, "Marcos",
                                 "Av Alvaro Neri dos Santos", "Bom Jesus", "Lages", "Santa Catarina", "88503397",
-                                "marcos@gmail.com", "322345128", "999231425");
+                                "marcos@gmail.com", "322345128", "999231425", "231213");
 
                 ResponsavelTecnico respTecnico2 = new ResponsavelTecnico((Integer) null, "Marcos",
                                 "Av Alvaro Neri dos Santos", "Bom Jesus", "Lages", "Santa Catarina", "88503397",
-                                "marcos@gmail.com", "322345128", "999231425");
+                                "marcos@gmail.com", "322345128", "999231425", "2131312");
 
                 Pomar pomar1 = new Pomar((Integer) null, "pomar-01", "InicialPomar", "Guaruja", "São Joaquim",
                                 "Santa Catarina", "88500000", produtor1, respTecnico1);

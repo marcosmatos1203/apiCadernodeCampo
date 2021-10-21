@@ -49,7 +49,16 @@ public class ResponsavelTecnicoDTO implements Serializable {
     @Length(min = 3, max = 60,message = "O celular deve ter entre 8 e 15 caracteres")
     private String telefone2;
 
+    @NotEmpty(message = "O crea não pode ser nulo")
+    @Length(min = 3, max = 25,message = "O crea deve ter entre 8 e 25 caracteres")
+    private String crea;
 
+    public String getCrea() {
+        return crea;
+    }
+    public void setCrea(String crea) {
+        this.crea = crea;
+    }
     public ResponsavelTecnicoDTO(ResponsavelTecnico obj) {
         this.id = obj.getId();
         this.nome = obj.getNome();
@@ -61,6 +70,7 @@ public class ResponsavelTecnicoDTO implements Serializable {
         this.email = obj.getEmail();
         this.telefone1 = obj.getTelefone1();
         this.telefone2 = obj.getTelefone2();
+        this.crea = obj.getCrea();
     }
     public ResponsavelTecnicoDTO() {
         super();

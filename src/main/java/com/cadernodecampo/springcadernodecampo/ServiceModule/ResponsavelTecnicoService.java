@@ -46,7 +46,8 @@ public class ResponsavelTecnicoService {
         obj.setCep(objDTO.getCep());
         obj.setEmail(objDTO.getEmail());
         obj.setTelefone1(objDTO.getTelefone1());
-        obj.setTelefone2(obj.getTelefone2());
+        obj.setTelefone2(objDTO.getTelefone2());
+        obj.setCrea(objDTO.getCrea());
 
         return repository.save(obj);
     }

@@ -58,9 +58,14 @@ public class ResponsavelTecnico implements Serializable {
     @Length(min = 3, max = 15,message = "O celular deve ter entre 8 e 15 caracteres")
     private String telefone2;
 
+
+    @NotEmpty(message = "O crea não pode ser nulo")
+    @Length(min = 3, max = 25,message = "O crea deve ter entre 8 e 25 caracteres")
+    private String crea;
    
+    
     public ResponsavelTecnico(Integer id, String nome, String logradouro, String bairro_localidade, String cidade,
-            String estado, String cep, String email, String telefone1, String telefone2) {
+            String estado, String cep, String email, String telefone1, String telefone2, String crea) {
         this.setId(id);
         this.setNome(nome);
         this.setLogradouro(logradouro);
@@ -71,8 +76,18 @@ public class ResponsavelTecnico implements Serializable {
         this.setEmail(email);
         this.setTelefone1(telefone1);
         this.setTelefone2(telefone2);
+        this.setCrea(crea);
     }
 
+    public String getCrea() {
+        return crea;
+    }
+
+    public void setCrea(String crea) {
+        this.crea = crea;
+    }
+
+    
     public String getTelefone2() {
         return telefone2;
     }
