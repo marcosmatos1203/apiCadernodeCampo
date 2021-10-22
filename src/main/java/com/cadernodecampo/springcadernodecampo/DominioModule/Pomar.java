@@ -60,6 +60,7 @@ public class Pomar implements Serializable {
     @JoinColumn(name = "idRespTecnico")
     private ResponsavelTecnico respTecnico;
 
+
     public Pomar(Integer id, String nome, String logradouro, String bairro_localidade, String cidade, String estado,
             String cep, Produtor produtor, ResponsavelTecnico respTecnico) {
         this.setId(id);

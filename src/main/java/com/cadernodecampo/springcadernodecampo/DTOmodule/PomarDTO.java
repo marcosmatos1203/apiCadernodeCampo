@@ -38,11 +38,10 @@ public class PomarDTO implements Serializable{
     private String cep;
 
     @NotEmpty(message = "O produtor não pode ser nulo")
-    private String nome_produtor;
+    private Integer id_produtor;
 
-   
     @NotEmpty(message = "O responsável técnico não pode ser nulo")
-    private String nome_respTecnico;
+    private Integer id_resp_tecnico;
 
     public PomarDTO(Pomar obj) {
         this.id = obj.getId();
@@ -52,30 +51,27 @@ public class PomarDTO implements Serializable{
         this.cidade = obj.getCidade();
         this.estado = obj.getEstado();
         this.cep = obj.getCep();
-        this.nome_produtor = obj.getProdutor().getNome();
-        this.nome_respTecnico = obj.getRespTecnico().getNome();
+        this.id_produtor = obj.getProdutor().getId();
+        this.id_resp_tecnico = obj.getRespTecnico().getId();
     }
    
-
-    public String getNome_produtor() {
-        return nome_produtor;
-    }
-
-
-    public void setNome_produtor(String nome_produtor) {
-        this.nome_produtor = nome_produtor;
-    }
-
-
-    public String getNome_respTecnico() {
-        return nome_respTecnico;
-    }
-
-
-    public void setNome_respTecnico(String nome_respTecnico) {
-        this.nome_respTecnico = nome_respTecnico;
-    }
     
+    public Integer getId_resp_tecnico() {
+        return id_resp_tecnico;
+    }
+
+
+    public void setId_resp_tecnico(Integer id_resp_tecnico) {
+        this.id_resp_tecnico = id_resp_tecnico;
+    }
+
+
+    public Integer getId_produtor() {
+        return id_produtor;
+    }
+    public void setId_produtor(Integer id_produtor) {
+        this.id_produtor = id_produtor;
+    }
     public PomarDTO() {
         super();
     }
