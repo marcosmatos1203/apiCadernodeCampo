@@ -81,7 +81,6 @@ public class DBService {
                 CultivarQuadra cultivarQuadra2 = new CultivarQuadra((Integer)null, portaE2, quadra1, cultivar, 25);
 
 
-                pomar1.getQuadras().addAll(Arrays.asList(quadra1));
                 quadra1.cultivaresQuadra.addAll(Arrays.asList(cultivarQuadra));
 
                 this.produtorRepository.saveAll(Arrays.asList(produtor1, produtor2));

@@ -60,17 +60,6 @@ public class Pomar implements Serializable {
     @JoinColumn(name = "idRespTecnico")
     private ResponsavelTecnico respTecnico;
 
-    @OneToMany(mappedBy = "pomar")
-    private List<Quadra> quadras = new ArrayList<>();
-
-    public List<Quadra> getQuadras() {
-        return quadras;
-    }
-
-    public void setQuadras(List<Quadra> quadras) {
-        this.quadras = quadras;
-    }
-
     public Pomar(Integer id, String nome, String logradouro, String bairro_localidade, String cidade, String estado,
             String cep, Produtor produtor, ResponsavelTecnico respTecnico) {
         this.setId(id);
