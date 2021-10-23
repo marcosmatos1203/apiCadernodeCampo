@@ -50,12 +50,10 @@ public class Pomar implements Serializable {
     @Length(min = 8, max = 8,message = "O cep deve ter entre 8 caracteres")
     private String cep;
 
-    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "idProdutor")
     private Produtor produtor;
 
-    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "idRespTecnico")
     private ResponsavelTecnico respTecnico;
