@@ -34,7 +34,7 @@ public class ResponsavelTecnicoDTO implements Serializable {
     private String estado;
 
     @NotEmpty(message = "O cep não pode ser nulo")
-    @Length(min = 8, max = 8,message = "O nome deve ter 8 caracteres")
+    @Length(min = 3, max = 15,message = "O nome deve ter 8 caracteres")
     private String cep;
 
     @NotEmpty(message = "O email não pode ser nulo")
@@ -42,11 +42,11 @@ public class ResponsavelTecnicoDTO implements Serializable {
     private String email;
 
     @NotEmpty(message = "O telefone não pode ser nulo")
-    @Length(min = 8, max = 14,message = "O telefone deve ter entre 8 e 14 caracteres")
+    @Length(min = 3, max = 15,message = "O telefone deve ter entre 8 e 14 caracteres")
     private String telefone1;
 
     @NotEmpty(message = "O celular não pode ser nulo")
-    @Length(min = 3, max = 60,message = "O celular deve ter entre 8 e 15 caracteres")
+    @Length(min = 3, max = 15,message = "O celular deve ter entre 8 e 15 caracteres")
     private String telefone2;
 
     @NotEmpty(message = "O crea não pode ser nulo")

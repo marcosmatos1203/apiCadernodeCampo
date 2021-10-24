@@ -51,13 +51,12 @@ public class ResponsavelTecnico implements Serializable {
     private String email;
 
     @NotEmpty(message = "O telefone não pode ser nulo")
-    @Length(min = 3, max = 60,message = "O telefone deve ter entre 8 e 15 caracteres")
+    @Length(min = 3, max = 15,message = "O telefone deve ter entre 8 e 15 caracteres")
     private String telefone1;
 
     @NotEmpty(message = "O celular não pode ser nulo")
     @Length(min = 3, max = 15,message = "O celular deve ter entre 8 e 15 caracteres")
     private String telefone2;
-
 
     @NotEmpty(message = "O crea não pode ser nulo")
     @Length(min = 3, max = 25,message = "O crea deve ter entre 8 e 25 caracteres")
