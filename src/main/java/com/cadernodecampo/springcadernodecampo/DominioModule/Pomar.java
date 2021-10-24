@@ -47,7 +47,7 @@ public class Pomar implements Serializable {
     private String estado;
 
     @NotEmpty(message = "O cep não pode ser nulo")
-    @Length(min = 8, max = 8,message = "O cep deve ter entre 8 caracteres")
+    @Length(min = 3, max = 15,message = "O cep deve ter entre 8 caracteres")
     private String cep;
 
     @ManyToOne()
