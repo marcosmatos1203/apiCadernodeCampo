@@ -57,8 +57,7 @@ public class ResponsavelTecnicoService {
         try {
             repository.deleteById(id); 
         } catch (DataIntegrityViolationException e) {
-            throw new DataIntegrityViolation("Produtor não pode ser deletado! Possui pomares associados.");
+            throw new DataIntegrityViolation("Responsável técnico não pode ser deletado! Possui pomares associados.");
         }
-        
     }
 }
