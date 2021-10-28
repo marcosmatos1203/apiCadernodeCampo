@@ -29,7 +29,7 @@ public class QuadraService {
 
     public List<Quadra> findAll(Integer id_pomar) {
         pomarService.findById(id_pomar);
-        return repository.findAllByProdutor(id_pomar);
+        return repository.findAllByPomar(id_pomar);
     }
 
     public Quadra update(Integer id, Quadra obj) {
