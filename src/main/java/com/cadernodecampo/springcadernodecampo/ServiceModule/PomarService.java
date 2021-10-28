@@ -20,8 +20,8 @@ public class PomarService {
     private PomarRepository repository;
     @Autowired
     private ProdutorService produtorService;
-    @Autowired
-    private ResponsavelTecnicoService respTecnicoService;
+    //@Autowired
+    //private ResponsavelTecnicoService respTecnicoService;
 
 
     public Pomar findById(Integer id) {

@@ -3,7 +3,6 @@ package com.cadernodecampo.springcadernodecampo.DTOmodule;
 import java.io.Serializable;
 
 import com.cadernodecampo.springcadernodecampo.DominioModule.Praga;
-import com.cadernodecampo.springcadernodecampo.DominioModule.Quadra;
 
 public class PragaDTO implements Serializable{
     private static final long serialVersionUID = 1L;

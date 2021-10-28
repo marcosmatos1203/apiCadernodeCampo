@@ -6,11 +6,8 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import com.cadernodecampo.springcadernodecampo.DTOmodule.PragaDTO;
-import com.cadernodecampo.springcadernodecampo.DTOmodule.ResponsavelTecnicoDTO;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Praga;
-import com.cadernodecampo.springcadernodecampo.DominioModule.ResponsavelTecnico;
 import com.cadernodecampo.springcadernodecampo.ServiceModule.PragaService;
-import com.cadernodecampo.springcadernodecampo.ServiceModule.ResponsavelTecnicoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
