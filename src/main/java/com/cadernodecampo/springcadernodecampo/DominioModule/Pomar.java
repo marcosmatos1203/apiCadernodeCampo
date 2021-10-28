@@ -1,8 +1,6 @@
 package com.cadernodecampo.springcadernodecampo.DominioModule;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,10 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -50,6 +45,10 @@ public class Pomar implements Serializable {
     @Length(min = 3, max = 15,message = "O cep deve ter entre 8 caracteres")
     private String cep;
 
+    private Integer produtorId;
+
+    private Integer respTecnicoId;
+
     @ManyToOne()
     @JoinColumn(name = "idProdutor")
     private Produtor produtor;
@@ -70,6 +69,8 @@ public class Pomar implements Serializable {
         this.setCep(cep);
         this.setProdutor(produtor);
         this.setRespTecnico(respTecnico);
+        this.respTecnicoId=respTecnico.getId();
+        this.produtorId=produtor.getId();
     }
 
     public ResponsavelTecnico getRespTecnico() {
@@ -111,6 +112,22 @@ public class Pomar implements Serializable {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    public Integer getProdutorId () {
+        return produtorId;
+    }
+
+    public void setProdutorId(Integer produtorId) {
+        this.produtorId = produtorId;
+    }
+
+    public Integer getRespTecnicoId () {
+        return respTecnicoId;
+    }
+
+    public void setRespTecnicoId(Integer respTecnicoId) {
+        this.respTecnicoId = respTecnicoId;
     }
 
     public String getEstado() {
