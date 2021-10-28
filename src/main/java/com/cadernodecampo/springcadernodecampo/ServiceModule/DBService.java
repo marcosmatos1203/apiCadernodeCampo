@@ -6,6 +6,7 @@ import com.cadernodecampo.springcadernodecampo.DominioModule.Cultivar;
 import com.cadernodecampo.springcadernodecampo.DominioModule.CultivarQuadra;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
 import com.cadernodecampo.springcadernodecampo.DominioModule.PortaEnxerto;
+import com.cadernodecampo.springcadernodecampo.DominioModule.Praga;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Produtor;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Quadra;
 import com.cadernodecampo.springcadernodecampo.DominioModule.ResponsavelTecnico;
@@ -13,6 +14,7 @@ import com.cadernodecampo.springcadernodecampo.RepositoryModule.CultivarQuadraRe
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.CultivarRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.PomarRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.PortaEnxertoRepository;
+import com.cadernodecampo.springcadernodecampo.RepositoryModule.PragaRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.ProdutorRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.QuadraRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.ResponsavelTecnicoRepository;
@@ -25,6 +27,9 @@ public class DBService {
 
         @Autowired
         private ProdutorRepository produtorRepository;
+
+        @Autowired
+        private PragaRepository pragaRepository;
 
         @Autowired
         private QuadraRepository quadraRepository;
@@ -80,6 +85,7 @@ public class DBService {
                 CultivarQuadra cultivarQuadra = new CultivarQuadra((Integer)null, portaE, quadra1, cultivar, 2);
                 CultivarQuadra cultivarQuadra2 = new CultivarQuadra((Integer)null, portaE2, quadra1, cultivar, 25);
 
+                Praga praga1 = new Praga((Integer)null, "praga1");
 
                 quadra1.cultivaresQuadra.addAll(Arrays.asList(cultivarQuadra));
 
@@ -91,5 +97,6 @@ public class DBService {
                 this.cultivarRepository.saveAll(Arrays.asList(cultivar));
                 this.cultivarQuadraRepository.saveAll(Arrays.asList(cultivarQuadra));
                 this.cultivarQuadraRepository.saveAll(Arrays.asList(cultivarQuadra2));
+                this.pragaRepository.saveAll(Arrays.asList(praga1));
         }
 }

@@ -18,7 +18,8 @@ public class Praga implements Serializable {
 
     private String nome;
     
-    public Praga(String nome) {
+    public Praga(Integer id, String nome) {
+        this.setId(id);
         this.nome = nome;
     }
 
