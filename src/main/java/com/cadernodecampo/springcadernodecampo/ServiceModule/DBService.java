@@ -2,6 +2,7 @@ package com.cadernodecampo.springcadernodecampo.ServiceModule;
 
 import java.util.Arrays;
 
+import com.cadernodecampo.springcadernodecampo.DominioModule.Armadilha;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Cultivar;
 import com.cadernodecampo.springcadernodecampo.DominioModule.CultivarQuadra;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
@@ -10,6 +11,7 @@ import com.cadernodecampo.springcadernodecampo.DominioModule.Praga;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Produtor;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Quadra;
 import com.cadernodecampo.springcadernodecampo.DominioModule.ResponsavelTecnico;
+import com.cadernodecampo.springcadernodecampo.RepositoryModule.ArmadilhaRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.CultivarQuadraRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.CultivarRepository;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.PomarRepository;
@@ -48,6 +50,9 @@ public class DBService {
 
         @Autowired
         private CultivarQuadraRepository cultivarQuadraRepository;
+
+        @Autowired
+        private ArmadilhaRepository armadilhaRepository;
         
         public void InstanciaBaseDeDados() {
 
@@ -86,6 +91,8 @@ public class DBService {
                 CultivarQuadra cultivarQuadra2 = new CultivarQuadra((Integer)null, portaE2, quadra1, cultivar, 25);
 
                 Praga praga1 = new Praga((Integer)null, "praga1");
+                
+                Armadilha armadilha1 = new Armadilha((Integer)null, 2.0, 2.1, "teste", quadra1);
 
                 quadra1.cultivaresQuadra.addAll(Arrays.asList(cultivarQuadra));
 
@@ -98,5 +105,6 @@ public class DBService {
                 this.cultivarQuadraRepository.saveAll(Arrays.asList(cultivarQuadra));
                 this.cultivarQuadraRepository.saveAll(Arrays.asList(cultivarQuadra2));
                 this.pragaRepository.saveAll(Arrays.asList(praga1));
+                this.armadilhaRepository.saveAll(Arrays.asList(armadilha1));
         }
 }
