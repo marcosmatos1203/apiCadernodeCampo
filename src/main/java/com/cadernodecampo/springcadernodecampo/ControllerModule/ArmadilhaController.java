@@ -45,7 +45,7 @@ public class ArmadilhaController {
 
     @GetMapping
     public ResponseEntity<List<ArmadilhaDTO>> findAll(
-            @RequestParam(value = "produtor", defaultValue = "0") Integer id_produtor) {
+            @RequestParam(value = "quadra", defaultValue = "0") Integer id_produtor) {
         List<Armadilha> listaArmadilha = service.findAll(id_produtor);
         List<ArmadilhaDTO> listaArmadilhaDTO = listaArmadilha.stream().map(obj -> new ArmadilhaDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listaArmadilhaDTO);
