@@ -66,12 +66,20 @@ public class PomarController {
         Pomar newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
-    @PostMapping
+  /*  @PostMapping
     public ResponseEntity<Pomar> create(@Valid @RequestParam(defaultValue = "0") Integer id_produtor, @RequestBody Pomar obj){
         Pomar newObj = service.create(id_produtor, obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/pomar/{id}").buildAndExpand(newObj.getId()).toUri();
         return ResponseEntity.created(uri).body(obj);
+    }*/
+
+    @PostMapping
+    public ResponseEntity<Pomar> create(@Valid @RequestBody Pomar obj){
+        Pomar newObj = service.create(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/pomar/{id}").buildAndExpand(newObj.getId()).toUri();
+        return ResponseEntity.created(uri).body(obj);
     }
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         service.delete(id);

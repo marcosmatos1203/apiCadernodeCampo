@@ -45,9 +45,9 @@ public class Pomar implements Serializable {
     @Length(min = 3, max = 15,message = "O cep deve ter entre 8 caracteres")
     private String cep;
 
-    private Integer produtorId;
+    //private Integer produtorId;
 
-    private Integer respTecnicoId;
+  //  private Integer respTecnicoId;
 
     @ManyToOne()
     @JoinColumn(name = "idProdutor")
@@ -69,8 +69,8 @@ public class Pomar implements Serializable {
         this.setCep(cep);
         this.setProdutor(produtor);
         this.setRespTecnico(respTecnico);
-        this.respTecnicoId=respTecnico.getId();
-        this.produtorId=produtor.getId();
+     //   this.respTecnicoId=respTecnico.getId();
+        //this.produtorId=produtor.getId();
     }
 
     public ResponsavelTecnico getRespTecnico() {
@@ -114,7 +114,7 @@ public class Pomar implements Serializable {
         this.cep = cep;
     }
 
-    public Integer getProdutorId () {
+  /*  public Integer getProdutorId () {
         return produtorId;
     }
 
@@ -129,7 +129,7 @@ public class Pomar implements Serializable {
     public void setRespTecnicoId(Integer respTecnicoId) {
         this.respTecnicoId = respTecnicoId;
     }
-
+*/
     public String getEstado() {
         return estado;
     }

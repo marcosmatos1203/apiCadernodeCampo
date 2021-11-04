@@ -57,10 +57,10 @@ public class PomarService {
         newObj.setRespTecnico(obj.getRespTecnico());
     }
 
-    public Pomar create(Integer id_produtor, Pomar obj) {
+    public Pomar create(Pomar obj) {
         obj.setId(null);
-        Produtor produtor = produtorService.findById(id_produtor);
-        obj.setProdutor(produtor);
+       // Produtor produtor = produtorService.findById(obj.getProdutor().getId());
+       // obj.setProdutor(produtor);
         return repository.save(obj);
     }
 
