@@ -56,7 +56,7 @@ public class PomarController {
         return ResponseEntity.ok().body(listaPomarDTO);
     }*/
 
-    @PutMapping(value = "/id")
+    @PutMapping(value = "/{id}")
     public ResponseEntity<Pomar> update(@Valid @PathVariable Integer id, @RequestBody PomarDTO obj) {
         Pomar newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
