@@ -3,6 +3,7 @@ package com.cadernodecampo.springcadernodecampo.ServiceModule;
 import java.util.List;
 import java.util.Optional;
 
+import com.cadernodecampo.springcadernodecampo.DTOmodule.PomarDTO;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Produtor;
 import com.cadernodecampo.springcadernodecampo.ExceptionsModule.DataIntegrityViolation;
@@ -40,13 +41,10 @@ public class PomarService {
      //   return repository.findByRespTecnico(id_respTecnico);
   //  }
 
-    public Pomar update(Integer id, Pomar obj) {
-        Pomar newObj = findById(id);
-        updateData(newObj, obj);
-        return repository.save(newObj);
-    }
+    public Pomar update(Integer id, PomarDTO obj) {
 
-    private void updateData(Pomar newObj, Pomar obj) {
+        Pomar newObj = findById(id);
+
         newObj.setNome(obj.getNome());
         newObj.setLogradouro(obj.getLogradouro());
         newObj.setBairro_localidade(obj.getBairro_localidade());
@@ -55,6 +53,8 @@ public class PomarService {
         newObj.setCep(obj.getCep());
         newObj.setProdutor(obj.getProdutor());
         newObj.setRespTecnico(obj.getRespTecnico());
+
+        return repository.save(newObj);
     }
 
     public Pomar create(Pomar obj) {

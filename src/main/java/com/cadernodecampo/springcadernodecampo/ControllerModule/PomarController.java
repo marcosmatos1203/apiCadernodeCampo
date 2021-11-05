@@ -57,12 +57,12 @@ public class PomarController {
     }*/
 
     @PutMapping(value = "/id")
-    public ResponseEntity<Pomar> update(@Valid @PathVariable Integer id, @RequestBody Pomar obj) {
+    public ResponseEntity<Pomar> update(@Valid @PathVariable Integer id, @RequestBody PomarDTO obj) {
         Pomar newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
     @PatchMapping(value = "/id")
-    public ResponseEntity<Pomar> updatePatch(@Valid @PathVariable Integer id, @RequestBody Pomar obj) {
+    public ResponseEntity<Pomar> updatePatch(@Valid @PathVariable Integer id, @RequestBody PomarDTO obj) {
         Pomar newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
