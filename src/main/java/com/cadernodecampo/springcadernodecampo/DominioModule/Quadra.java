@@ -33,7 +33,7 @@ public class Quadra implements Serializable {
 
     @JsonIgnore
     @ManyToOne()
-    @JoinColumn(name = "idPomar")
+    @JoinColumn(name = "Pomar")
     private Pomar pomar;
     
 

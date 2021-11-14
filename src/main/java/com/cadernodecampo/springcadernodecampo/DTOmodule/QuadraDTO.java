@@ -2,6 +2,7 @@ package com.cadernodecampo.springcadernodecampo.DTOmodule;
 
 import java.io.Serializable;
 
+import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Quadra;
 
 public class QuadraDTO implements Serializable{
@@ -18,7 +19,7 @@ public class QuadraDTO implements Serializable{
 
     private Integer quantidadeColmeias;
 
-    private Integer id_pomar;
+    private Pomar pomar;
 
     
     public QuadraDTO(Quadra obj) {
@@ -27,7 +28,7 @@ public class QuadraDTO implements Serializable{
         this.distanciaFilas = obj.getDistanciaFilas();
         this.distanciaPlantas = obj.getDistanciaPlantas();
         this.quantidadeColmeias = obj.getQuantidadeColmeias();
-        this.id_pomar = obj.getPomar().getId();
+        this.pomar = obj.getPomar();
     }
     public QuadraDTO() {
         super();
@@ -41,11 +42,11 @@ public class QuadraDTO implements Serializable{
     public void setId(Integer id) {
         this.id = id;
     }
-    public Integer getId_pomar() {
-        return id_pomar;
+    public Pomar getId_pomar() {
+        return pomar;
     }
-    public void setId_pomar(Integer id_pomar) {
-        this.id_pomar = id_pomar;
+    public void setId_pomar(Pomar pomar) {
+        this.pomar = pomar;
     }
     public Integer getQuantidadeColmeias() {
         return quantidadeColmeias;
