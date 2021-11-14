@@ -31,7 +31,6 @@ public class Quadra implements Serializable {
 
     private Integer quantidadeColmeias;
 
-    @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "Pomar")
     private Pomar pomar;
