@@ -41,19 +41,19 @@ public class CultivarQuadraController {
 
     @GetMapping
     public ResponseEntity<List<CultivarQuadraDTO>> findAll(
-            @RequestParam(value = "quadra", defaultValue = "0") Integer id_quadra) {
-        List<CultivarQuadra> listaCultivarQuadra = service.findAll(id_quadra);
+            @RequestParam(value = "quadra", defaultValue = "0") Integer id_Quadra) {
+        List<CultivarQuadra> listaCultivarQuadra = service.findAll(id_Quadra);
         List<CultivarQuadraDTO> listaCultivarQuadraDTO = listaCultivarQuadra.stream().map(obj -> new CultivarQuadraDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listaCultivarQuadraDTO);
     }
 
-    @PutMapping(value = "/id")
+    @PutMapping(value = "/{id}")
     public ResponseEntity<CultivarQuadra> update(@Valid @PathVariable Integer id, @RequestBody CultivarQuadra obj) {
         CultivarQuadra newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
 
-    @PatchMapping(value = "/id")
+    @PatchMapping(value = "/{id}")
     public ResponseEntity<CultivarQuadra> updatePatch(@Valid @PathVariable Integer id, @RequestBody CultivarQuadra obj) {
         CultivarQuadra newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);

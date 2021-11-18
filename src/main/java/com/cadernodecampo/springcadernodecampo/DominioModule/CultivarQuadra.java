@@ -18,14 +18,14 @@ public class CultivarQuadra implements Serializable {
 
     @Id
     @ManyToOne()
-    @JoinColumn(name = "id_Enxerto")
-    public PortaEnxerto enxerto;
-
-    @Id
-    @JsonIgnore
-    @ManyToOne()
+    @JsonIgnore()
     @JoinColumn(name = "id_Quadra")
     public Quadra quadra;
+
+    @Id
+    @ManyToOne()
+    @JoinColumn(name = "id_Enxerto")
+    public PortaEnxerto enxerto;
 
     @Id
     @ManyToOne()
@@ -38,7 +38,7 @@ public class CultivarQuadra implements Serializable {
         super();
     }
     
-    public CultivarQuadra(Integer id, PortaEnxerto enxerto, Quadra quadra, Cultivar cultivar, Integer quantidade) {
+    public CultivarQuadra(PortaEnxerto enxerto, Quadra quadra, Cultivar cultivar, Integer quantidade) {
         this.enxerto = enxerto;
         this.quadra = quadra;
         this.cultivar = cultivar;
@@ -81,8 +81,6 @@ public class CultivarQuadra implements Serializable {
             return false;
         return true;
     }
-
-
 }
 
 

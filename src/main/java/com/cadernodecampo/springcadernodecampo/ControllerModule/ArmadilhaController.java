@@ -7,11 +7,8 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import com.cadernodecampo.springcadernodecampo.DTOmodule.ArmadilhaDTO;
-import com.cadernodecampo.springcadernodecampo.DTOmodule.PomarDTO;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Armadilha;
-import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
 import com.cadernodecampo.springcadernodecampo.ServiceModule.ArmadilhaService;
-import com.cadernodecampo.springcadernodecampo.ServiceModule.PomarService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

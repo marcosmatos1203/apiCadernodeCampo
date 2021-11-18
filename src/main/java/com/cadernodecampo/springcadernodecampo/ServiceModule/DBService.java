@@ -87,8 +87,8 @@ public class DBService {
 
                 Cultivar cultivar = new Cultivar((Integer)null, "cultivar 1");
                 
-                CultivarQuadra cultivarQuadra = new CultivarQuadra((Integer)null, portaE, quadra1, cultivar, 2);
-                CultivarQuadra cultivarQuadra2 = new CultivarQuadra((Integer)null, portaE2, quadra1, cultivar, 25);
+                CultivarQuadra cultivarQuadra = new CultivarQuadra(portaE, quadra1, cultivar, 25);
+                CultivarQuadra cultivarQuadra2 = new CultivarQuadra(portaE2, quadra1, cultivar, 25);
 
                 Praga praga1 = new Praga((Integer)null, "praga1");
                 

@@ -11,7 +11,7 @@ public class CultivarQuadraDTO implements Serializable {
     
     private static final long serialVersionUID = 1L;
 
-    private PortaEnxerto enxerto;
+    public PortaEnxerto enxerto;
 
     private Quadra quadra;
 
@@ -63,5 +63,4 @@ public class CultivarQuadraDTO implements Serializable {
         return true;
     }
 
-    
 }

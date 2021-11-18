@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CultivarQuadraRepository extends JpaRepository<CultivarQuadra, Integer>{
-    @Query("select obj from CultivarQuadra obj where obj.quadra.id = :id_quadra order by nome")
+    @Query("select obj from CultivarQuadra obj where obj.quadra.id = :id_quadra")
     List<CultivarQuadra> findAllByQuadra(@Param(value =  "id_quadra") Integer id_quadra);
 }

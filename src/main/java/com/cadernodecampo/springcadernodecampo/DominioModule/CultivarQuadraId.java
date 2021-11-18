@@ -2,6 +2,8 @@ package com.cadernodecampo.springcadernodecampo.DominioModule;
 
 import java.io.Serializable;
 
+
+
 public class CultivarQuadraId implements Serializable{
 
     public Integer enxerto;
@@ -10,7 +12,7 @@ public class CultivarQuadraId implements Serializable{
 
     public Integer cultivar;
 
-    public CultivarQuadraId(Integer id, Integer enxerto, Integer quadra, Integer cultivar) {
+    public CultivarQuadraId(Integer enxerto, Integer quadra, Integer cultivar) {
         this.enxerto = enxerto;
         this.quadra = quadra;
         this.cultivar = cultivar;
@@ -56,8 +58,4 @@ public class CultivarQuadraId implements Serializable{
             return false;
         return true;
     }
-
-    
-
-    
 }
