@@ -2,11 +2,15 @@ package com.cadernodecampo.springcadernodecampo.DominioModule;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -15,6 +19,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class CultivarQuadra implements Serializable {
     
     private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer id;
 
     @Id
     @ManyToOne()
@@ -38,20 +46,18 @@ public class CultivarQuadra implements Serializable {
         super();
     }
     
-    public CultivarQuadra(PortaEnxerto enxerto, Quadra quadra, Cultivar cultivar, Integer quantidade) {
+    public CultivarQuadra(Integer id, PortaEnxerto enxerto, Quadra quadra, Cultivar cultivar, Integer quantidade) {
+        this.id = id;
         this.enxerto = enxerto;
         this.quadra = quadra;
         this.cultivar = cultivar;
         this.quantidade = quantidade;
     }
-
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((cultivar == null) ? 0 : cultivar.hashCode());
-        result = prime * result + ((enxerto == null) ? 0 : enxerto.hashCode());
-        result = prime * result + ((quadra == null) ? 0 : quadra.hashCode());
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
         return result;
     }
 
@@ -64,20 +70,10 @@ public class CultivarQuadra implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         CultivarQuadra other = (CultivarQuadra) obj;
-        if (cultivar == null) {
-            if (other.cultivar != null)
+        if (id == null) {
+            if (other.id != null)
                 return false;
-        } else if (!cultivar.equals(other.cultivar))
-            return false;
-        if (enxerto == null) {
-            if (other.enxerto != null)
-                return false;
-        } else if (!enxerto.equals(other.enxerto))
-            return false;
-        if (quadra == null) {
-            if (other.quadra != null)
-                return false;
-        } else if (!quadra.equals(other.quadra))
+        } else if (!id.equals(other.id))
             return false;
         return true;
     }

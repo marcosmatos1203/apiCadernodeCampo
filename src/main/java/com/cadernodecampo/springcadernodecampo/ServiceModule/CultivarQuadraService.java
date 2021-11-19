@@ -21,7 +21,7 @@ public class CultivarQuadraService {
     private QuadraService quadraService;
 
     public CultivarQuadra findById(Integer id) {
-        Optional<CultivarQuadra> obj = repository.findById(id);
+        Optional<CultivarQuadra> obj = repository.findByIdCultivarQuadra(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
                 "Objeto não encontrado! Id: " + id + ", tipo: " + CultivarQuadra.class.getName()));
     }

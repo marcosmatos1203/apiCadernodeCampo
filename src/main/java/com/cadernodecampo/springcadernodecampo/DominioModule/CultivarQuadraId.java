@@ -6,13 +6,16 @@ import java.io.Serializable;
 
 public class CultivarQuadraId implements Serializable{
 
+    public Integer id;
+
     public Integer enxerto;
 
     public Integer quadra;
 
     public Integer cultivar;
 
-    public CultivarQuadraId(Integer enxerto, Integer quadra, Integer cultivar) {
+    public CultivarQuadraId(Integer id, Integer enxerto, Integer quadra, Integer cultivar) {
+        this.id = id;
         this.enxerto = enxerto;
         this.quadra = quadra;
         this.cultivar = cultivar;
@@ -28,6 +31,7 @@ public class CultivarQuadraId implements Serializable{
         int result = 1;
         result = prime * result + ((cultivar == null) ? 0 : cultivar.hashCode());
         result = prime * result + ((enxerto == null) ? 0 : enxerto.hashCode());
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((quadra == null) ? 0 : quadra.hashCode());
         return result;
     }
@@ -51,6 +55,11 @@ public class CultivarQuadraId implements Serializable{
                 return false;
         } else if (!enxerto.equals(other.enxerto))
             return false;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
         if (quadra == null) {
             if (other.quadra != null)
                 return false;
@@ -58,4 +67,6 @@ public class CultivarQuadraId implements Serializable{
             return false;
         return true;
     }
+
+  
 }
