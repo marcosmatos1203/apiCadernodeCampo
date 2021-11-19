@@ -94,7 +94,7 @@ public class DBService {
                 
                 Armadilha armadilha1 = new Armadilha((Integer)null, 2.0, 2.1, "teste", quadra1);
 
-                quadra1.cultivaresQuadra.addAll(Arrays.asList(cultivarQuadra));
+
 
                 this.produtorRepository.saveAll(Arrays.asList(produtor1, produtor2));
                 this.responsavelTecnicoRepository.saveAll(Arrays.asList(respTecnico1, respTecnico2));

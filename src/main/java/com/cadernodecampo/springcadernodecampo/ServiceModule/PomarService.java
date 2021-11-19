@@ -72,4 +72,8 @@ public class PomarService {
             throw new DataIntegrityViolation("Pomar não pode ser deletado! Possui quadras associadas.");
         }
     }
+
+    public List<Pomar> findAllPomar() {
+        return repository.findAll();
+    }
 }

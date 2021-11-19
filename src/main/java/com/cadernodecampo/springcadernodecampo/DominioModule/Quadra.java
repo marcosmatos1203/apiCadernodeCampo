@@ -34,10 +34,6 @@ public class Quadra implements Serializable {
     @ManyToOne()
     @JoinColumn(name = "Pomar")
     private Pomar pomar;
-    
-
-    @OneToMany(mappedBy = "quadra")
-    public List<CultivarQuadra> cultivaresQuadra = new ArrayList<>();
 
 
     public Quadra(Integer id, Integer anoPlantio, Integer distanciaFilas, Integer distanciaPlantas,

@@ -47,14 +47,13 @@ public class PomarController {
         return ResponseEntity.ok().body(listaPomarDTO);
     }
     
-/*
-    @GetMapping
-    public ResponseEntity<List<PomarDTO>> findAllByRespTecnico(
-            @RequestParam(value = "respTecnico", defaultValue = "0") Integer id_respTecnico) {
-        List<Pomar> listaPomar = service.findAllByRespTec(id_respTecnico);
+    @GetMapping(value = "/all")
+    public ResponseEntity<List<PomarDTO>> findAllPomar() {
+        List<Pomar> listaPomar = service.findAllPomar();
         List<PomarDTO> listaPomarDTO = listaPomar.stream().map(obj -> new PomarDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listaPomarDTO);
-    }*/
+    }
+    
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Pomar> update(@Valid @PathVariable Integer id, @RequestBody PomarDTO obj) {
