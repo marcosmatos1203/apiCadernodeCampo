@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import com.cadernodecampo.springcadernodecampo.DTOmodule.PomarDTO;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
-import com.cadernodecampo.springcadernodecampo.DominioModule.Produtor;
 import com.cadernodecampo.springcadernodecampo.ExceptionsModule.DataIntegrityViolation;
 import com.cadernodecampo.springcadernodecampo.ExceptionsModule.ObjectNotFoundException;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.PomarRepository;

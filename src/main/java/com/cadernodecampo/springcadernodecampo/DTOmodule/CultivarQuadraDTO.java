@@ -11,11 +11,11 @@ public class CultivarQuadraDTO implements Serializable {
     
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
+    public Integer id;
 
     public PortaEnxerto enxerto;
 
-    private Quadra quadra;
+    public Quadra quadra;
 
     public Cultivar cultivar;
 
