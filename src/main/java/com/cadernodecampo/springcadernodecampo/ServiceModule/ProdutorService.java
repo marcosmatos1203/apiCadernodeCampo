@@ -1,5 +1,7 @@
 package com.cadernodecampo.springcadernodecampo.ServiceModule;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +27,17 @@ public class ProdutorService {
     }
 
     public List<Produtor> findAll(){
-        return produtorRepository.findAll();
+       // return produtorRepository.findAll();
+       //ordenar por nome
+       List<Produtor> lista = new ArrayList<>(produtorRepository.findAll());
+       lista.sort(new Comparator<Produtor>() {
+           @Override
+           public int compare(Produtor o1, Produtor o2) {
+               return o1.getNome().compareTo(o2.getNome());
+           }
+       });
+
+       return lista;
     }
 
     public Produtor create (Produtor obj){
