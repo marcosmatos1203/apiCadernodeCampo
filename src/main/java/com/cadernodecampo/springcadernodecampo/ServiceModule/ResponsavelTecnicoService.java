@@ -1,5 +1,7 @@
 package com.cadernodecampo.springcadernodecampo.ServiceModule;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +27,18 @@ public class ResponsavelTecnicoService {
     }
 
     public List<ResponsavelTecnico> findAll(){
-        return repository.findAll();
+        //return repository.findAll();
+        
+        //ordenando por nome
+        List<ResponsavelTecnico> lista = new ArrayList<>(repository.findAll());
+        lista.sort(new Comparator<ResponsavelTecnico>() {
+            @Override
+            public int compare(ResponsavelTecnico o1, ResponsavelTecnico o2) {
+                return o1.getNome().compareTo(o2.getNome());
+            }
+        });
+
+        return lista;
     }
     
     public ResponsavelTecnico create (ResponsavelTecnico obj){
