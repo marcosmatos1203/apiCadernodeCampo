@@ -22,32 +22,32 @@ public class Pomar implements Serializable {
     private Integer id;
 
     @NotEmpty(message = "O nome não pode ser nulo")
-    @Length(min = 3, max = 60,message = "O nome deve ter entre 3 e 60 caracteres")
+    @Length(min = 3, max = 60, message = "O nome deve ter entre 3 e 60 caracteres")
     private String nome;
-    
+
     @NotEmpty(message = "O logradouro não pode ser nulo")
-    @Length(min = 3, max = 60,message = "O logradouro deve ter entre 3 e 60 caracteres")
+    @Length(min = 3, max = 60, message = "O logradouro deve ter entre 3 e 60 caracteres")
     private String logradouro;
 
     @NotEmpty(message = "O bairro/localidade não pode ser nulo")
-    @Length(min = 3, max = 60,message = "O bairro/localidade deve ter entre 3 e 60 caracteres")
+    @Length(min = 3, max = 60, message = "O bairro/localidade deve ter entre 3 e 60 caracteres")
     private String bairro_localidade;
 
     @NotEmpty(message = "O cidade não pode ser nulo")
-    @Length(min = 3, max = 60,message = "O cidade deve ter entre 3 e 60 caracteres")
+    @Length(min = 3, max = 60, message = "O cidade deve ter entre 3 e 60 caracteres")
     private String cidade;
 
     @NotEmpty(message = "O estado não pode ser nulo")
-    @Length(min = 3, max = 60,message = "O estado deve ter entre 3 e 60 caracteres")
+    @Length(min = 3, max = 60, message = "O estado deve ter entre 3 e 60 caracteres")
     private String estado;
 
     @NotEmpty(message = "O cep não pode ser nulo")
-    @Length(min = 3, max = 15,message = "O cep deve ter entre 8 caracteres")
+    @Length(min = 3, max = 15, message = "O cep deve ter entre 8 caracteres")
     private String cep;
 
-    //private Integer produtorId;
+    private Integer produtorId;
 
-  //  private Integer respTecnicoId;
+    private Integer respTecnicoId;
 
     @ManyToOne()
     @JoinColumn(name = "idProdutor")
@@ -57,6 +57,18 @@ public class Pomar implements Serializable {
     @JoinColumn(name = "idRespTecnico")
     private ResponsavelTecnico respTecnico;
 
+    public Pomar(Integer id, String nome, String logradouro, String bairro_localidade, String cidade, String estado,
+            String cep, Integer produtor, Integer respTecnico) {
+        this.setId(id);
+        this.setNome(nome);
+        this.setLogradouro(logradouro);
+        this.setBairro_localidade(bairro_localidade);
+        this.setCidade(cidade);
+        this.setEstado(estado);
+        this.setCep(cep);
+        this.respTecnicoId = respTecnico;
+        this.produtorId = produtor;
+    }
 
     public Pomar(Integer id, String nome, String logradouro, String bairro_localidade, String cidade, String estado,
             String cep, Produtor produtor, ResponsavelTecnico respTecnico) {
@@ -69,8 +81,8 @@ public class Pomar implements Serializable {
         this.setCep(cep);
         this.setProdutor(produtor);
         this.setRespTecnico(respTecnico);
-     //   this.respTecnicoId=respTecnico.getId();
-        //this.produtorId=produtor.getId();
+        this.respTecnicoId = respTecnico.getId();
+        this.produtorId = produtor.getId();
     }
 
     public ResponsavelTecnico getRespTecnico() {
@@ -114,7 +126,7 @@ public class Pomar implements Serializable {
         this.cep = cep;
     }
 
-  /*  public Integer getProdutorId () {
+    public Integer getProdutorId() {
         return produtorId;
     }
 
@@ -122,14 +134,14 @@ public class Pomar implements Serializable {
         this.produtorId = produtorId;
     }
 
-    public Integer getRespTecnicoId () {
+    public Integer getRespTecnicoId() {
         return respTecnicoId;
     }
 
     public void setRespTecnicoId(Integer respTecnicoId) {
         this.respTecnicoId = respTecnicoId;
     }
-*/
+
     public String getEstado() {
         return estado;
     }
