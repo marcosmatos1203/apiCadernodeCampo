@@ -68,6 +68,8 @@ public class Pomar implements Serializable {
         this.setCep(cep);
         this.respTecnicoId = respTecnico;
         this.produtorId = produtor;
+        this.produtor.setId(produtor);
+        this.respTecnico.setId(respTecnico);
     }
 
     public Pomar(Integer id, String nome, String logradouro, String bairro_localidade, String cidade, String estado,
