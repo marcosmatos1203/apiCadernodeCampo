@@ -28,7 +28,6 @@ public class QuadraService {
     }
 
     public List<Quadra> findAll(Integer id_pomar) {
-        pomarService.findById(id_pomar);
         return repository.findAllByPomar(id_pomar);
     }
 
