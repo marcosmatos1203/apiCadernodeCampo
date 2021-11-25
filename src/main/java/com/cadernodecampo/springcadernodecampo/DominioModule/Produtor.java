@@ -36,7 +36,7 @@ public class Produtor implements Serializable {
     private String cidade;
 
     @NotEmpty(message = "O estado não pode ser nulo")
-    @Length(min = 3, max = 60,message = "O estado deve ter entre 3 e 60 caracteres")
+    @Length(min = 1, max = 60,message = "O estado deve ter entre 3 e 60 caracteres")
     private String estado;
 
     @NotEmpty(message = "O cep não pode ser nulo")
