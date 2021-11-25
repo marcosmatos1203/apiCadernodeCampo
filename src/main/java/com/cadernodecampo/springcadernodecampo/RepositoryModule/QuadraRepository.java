@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface QuadraRepository extends JpaRepository<Quadra,Integer>{
-    @Query("select obj from Quadra obj where obj.pomar.id = :pomar")
-    List<Quadra> findAllByPomar(@Param(value =  "pomar") Integer pomar);
+    @Query("select obj from Quadra obj where obj.pomar.id = :id_pomar")
+    List<Quadra> findAllByPomar(@Param(value =  "id_pomar") Integer id_pomar);
 }
