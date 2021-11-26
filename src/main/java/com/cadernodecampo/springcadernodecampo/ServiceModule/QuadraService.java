@@ -3,7 +3,7 @@ package com.cadernodecampo.springcadernodecampo.ServiceModule;
 import java.util.List;
 import java.util.Optional;
 
-import com.cadernodecampo.springcadernodecampo.DominioModule.Pomar;
+import com.cadernodecampo.springcadernodecampo.DTOmodule.QuadraDTO;
 import com.cadernodecampo.springcadernodecampo.DominioModule.Quadra;
 import com.cadernodecampo.springcadernodecampo.ExceptionsModule.DataIntegrityViolation;
 import com.cadernodecampo.springcadernodecampo.ExceptionsModule.ObjectNotFoundException;
@@ -18,8 +18,9 @@ public class QuadraService {
 
     @Autowired
     private QuadraRepository repository;
-    @Autowired
-    private PomarService pomarService;
+    //@Autowired
+    //private ResponsavelTecnicoService respTecnicoService;
+
 
     public Quadra findById(Integer id) {
         Optional<Quadra> obj = repository.findById(id);
@@ -31,24 +32,28 @@ public class QuadraService {
         return repository.findAllByPomar(id_pomar);
     }
 
-    public Quadra update(Integer id, Quadra obj) {
-        Quadra newObj = findById(id);
-        updateData(newObj, obj);
-        return repository.save(newObj);
-    }
+ //   public List<Pomar> findAllByRespTec(Integer id_respTecnico) {
+   //     respTecnicoService.findById(id_respTecnico);
+     //   return repository.findByRespTecnico(id_respTecnico);
+  //  }
 
-    private void updateData(Quadra newObj, Quadra obj) {
+    public Quadra update(Integer id, QuadraDTO obj) {
+
+        Quadra newObj = findById(id);
+
         newObj.setAnoPlantio(obj.getAnoPlantio());
         newObj.setDistanciaFilas(obj.getDistanciaFilas());
         newObj.setDistanciaPlantas(obj.getDistanciaPlantas());
+        newObj.setPomar(obj.getId_pomar());
         newObj.setQuantidadeColmeias(obj.getQuantidadeColmeias());
-        newObj.setPomar(obj.getPomar());
+
+        return repository.save(newObj);
     }
 
-    public Quadra create(Integer id_pomar, Quadra obj) {
+    public Quadra create(Quadra obj) {
         obj.setId(null);
-        Pomar pomar = pomarService.findById(id_pomar);
-        obj.setPomar(pomar);
+       // Produtor produtor = produtorService.findById(obj.getProdutor().getId());
+       // obj.setProdutor(produtor);
         return repository.save(obj);
     }
 
@@ -57,7 +62,7 @@ public class QuadraService {
         try {
             repository.deleteById(id);
         } catch (DataIntegrityViolationException e) {
-            throw new DataIntegrityViolation("Quadra não pode ser deletada! Possui armadilha ou cultivo associadas.");
+            throw new DataIntegrityViolation("Quadra não pode ser deletado! Possui quadras associadas.");
         }
     }
 }

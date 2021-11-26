@@ -32,7 +32,7 @@ public class QuadraController {
     @Autowired
     private QuadraService service;
 
-    @GetMapping(value = "/{id}")
+ /*   @GetMapping(value = "/{id}")
     public ResponseEntity<Quadra> findById(@PathVariable Integer id) {
         Quadra obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
@@ -40,8 +40,8 @@ public class QuadraController {
 
     @GetMapping
     public ResponseEntity<List<QuadraDTO>> findAll(
-            @RequestParam(value = "pomar", defaultValue = "0") Integer id_produtor) {
-        List<Quadra> listaQuadra = service.findAll(id_produtor);
+            @RequestParam(value = "pomar", defaultValue = "0") Integer pomar) {
+        List<Quadra> listaQuadra = service.findAll(pomar);
         List<QuadraDTO> listaQuadraDTO = listaQuadra.stream().map(obj -> new QuadraDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listaQuadraDTO);
 
@@ -58,15 +58,63 @@ public class QuadraController {
         Quadra newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
-    @PostMapping
-    public ResponseEntity<Quadra> create(@Valid @RequestParam(defaultValue = "0") Integer id_pomar, @RequestBody Quadra obj){
-        Quadra newObj = service.create(id_pomar, obj);
+    //@PostMapping
+  //  public ResponseEntity<Quadra> create(@Valid @RequestParam(defaultValue = "0") Integer id_pomar, @RequestBody Quadra obj){
+    //    Quadra newObj = service.create(id_pomar, obj);
+   //     URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/quadra/{id}").buildAndExpand(newObj.getId()).toUri();
+    //    return ResponseEntity.created(uri).build();
+  //  }
+  @PostMapping
+    public ResponseEntity<Quadra> create(@Valid @RequestBody Quadra obj){
+        Quadra newObj = service.create(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/quadra/{id}").buildAndExpand(newObj.getId()).toUri();
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.created(uri).body(obj);
     }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         service.delete(id);
         return ResponseEntity.noContent().build();
+    }*/
+
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Quadra> findById(@PathVariable Integer id) {
+        Quadra obj = service.findById(id);
+        return ResponseEntity.ok().body(obj);
     }
+
+    @GetMapping
+    public ResponseEntity<List<QuadraDTO>> findAll(
+            @RequestParam(value = "pomar", defaultValue = "0") Integer id_pomar) {
+        List<Quadra> listaQuadra = service.findAll(id_pomar);
+        List<QuadraDTO> listaQuadraDTO = listaQuadra.stream().map(obj -> new QuadraDTO(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listaQuadraDTO);
+    }
+    
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Quadra> update(@Valid @PathVariable Integer id, @RequestBody QuadraDTO obj) {
+        Quadra newObj = service.update(id, obj);
+        return ResponseEntity.ok().body(newObj);
+    }
+
+    @PatchMapping(value = "/id")
+    public ResponseEntity<Quadra> updatePatch(@Valid @PathVariable Integer id, @RequestBody QuadraDTO obj) {
+        Quadra newObj = service.update(id, obj);
+        return ResponseEntity.ok().body(newObj);
+    }
+
+    @PostMapping
+    public ResponseEntity<Quadra> create(@Valid @RequestBody Quadra obj){
+        Quadra newObj = service.create(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/quadra/{id}").buildAndExpand(newObj.getId()).toUri();
+        return ResponseEntity.created(uri).body(obj);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
