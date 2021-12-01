@@ -66,6 +66,7 @@ public class CultivarQuadraController {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.id).toUri();
         return ResponseEntity.created(uri).body(obj);
     }
+<<<<<<< HEAD
     
     //@PostMapping
     //public ResponseEntity<CultivarQuadra> create(@Valid @RequestParam(defaultValue = "0") Integer id_quadra, @RequestBody CultivarQuadra obj){
@@ -73,6 +74,9 @@ public class CultivarQuadraController {
     //    URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/cultivarQuadra/{id}").buildAndExpand(newObj.cultivar, newObj.quadra, newObj.enxerto).toUri();
      //   return ResponseEntity.created(uri).build();
     //}
+=======
+
+>>>>>>> 27f547701a56ef81e84e7ff6854b83deafa6df91
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         service.delete(id);
