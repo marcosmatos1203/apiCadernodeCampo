@@ -1,5 +1,6 @@
 package com.cadernodecampo.springcadernodecampo.ServiceModule;
-
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +26,15 @@ public class CultivarService {
     }
 
     public List<Cultivar> findAll(){
-        return repository.findAll();
+        List<Cultivar> lista = new ArrayList<>(repository.findAll());
+        lista.sort(new Comparator<Cultivar>() {
+            @Override
+            public int compare(Cultivar o1, Cultivar o2) {
+                return o1.nome.compareTo(o2.nome);
+            }
+        });
+ 
+        return lista;
     }
 
     public Cultivar create (Cultivar obj){
