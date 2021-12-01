@@ -63,7 +63,7 @@ public class CultivarQuadraController {
     public ResponseEntity<CultivarQuadra> create(@Valid @RequestParam(defaultValue = "0") Integer id_quadra, @RequestBody CultivarQuadra obj){
         CultivarQuadra newObj = service.create(id_quadra, obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/cultivarQuadra/{id}").buildAndExpand(newObj.cultivar, newObj.quadra, newObj.enxerto).toUri();
-        return ResponseEntity.created(uri).build();
+        return  ResponseEntity.created(uri).body(obj);
     }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
