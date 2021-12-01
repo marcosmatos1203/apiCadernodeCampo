@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cadernodecampo.springcadernodecampo.DominioModule.CultivarQuadra;
-import com.cadernodecampo.springcadernodecampo.DominioModule.Quadra;
 import com.cadernodecampo.springcadernodecampo.ExceptionsModule.DataIntegrityViolation;
 import com.cadernodecampo.springcadernodecampo.ExceptionsModule.ObjectNotFoundException;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.CultivarQuadraRepository;
@@ -44,9 +43,8 @@ public class CultivarQuadraService {
         newObj.quantidade = obj.quantidade;
     }
 
-    public CultivarQuadra create(Integer id_quadra, CultivarQuadra obj) {
-        Quadra quadra = quadraService.findById(id_quadra);
-        obj.quadra = quadra;
+    public CultivarQuadra create( CultivarQuadra obj) {
+        obj.id = null;
         return repository.save(obj);
     }
 

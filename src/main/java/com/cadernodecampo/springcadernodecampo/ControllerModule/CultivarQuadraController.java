@@ -59,12 +59,20 @@ public class CultivarQuadraController {
         return ResponseEntity.ok().body(newObj);
     }
 
+
     @PostMapping
-    public ResponseEntity<CultivarQuadra> create(@Valid @RequestParam(defaultValue = "0") Integer id_quadra, @RequestBody CultivarQuadra obj){
-        CultivarQuadra newObj = service.create(id_quadra, obj);
-        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/cultivarQuadra/{id}").buildAndExpand(newObj.cultivar, newObj.quadra, newObj.enxerto).toUri();
-        return ResponseEntity.created(uri).build();
+    public ResponseEntity<CultivarQuadra> create(@Valid @RequestBody CultivarQuadra obj) {
+        obj = service.create(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.id).toUri();
+        return ResponseEntity.created(uri).body(obj);
     }
+    
+    //@PostMapping
+    //public ResponseEntity<CultivarQuadra> create(@Valid @RequestParam(defaultValue = "0") Integer id_quadra, @RequestBody CultivarQuadra obj){
+    //   CultivarQuadra newObj = service.create(id_quadra, obj);
+    //    URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/cultivarQuadra/{id}").buildAndExpand(newObj.cultivar, newObj.quadra, newObj.enxerto).toUri();
+     //   return ResponseEntity.created(uri).build();
+    //}
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         service.delete(id);
