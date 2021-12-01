@@ -43,11 +43,7 @@ public class CultivarQuadraService {
         newObj.quantidade = obj.quantidade;
     }
 
-<<<<<<< HEAD
-    public CultivarQuadra create( CultivarQuadra obj) {
-=======
     public CultivarQuadra create(CultivarQuadra obj) {
->>>>>>> 27f547701a56ef81e84e7ff6854b83deafa6df91
         obj.id = null;
         return repository.save(obj);
     }
