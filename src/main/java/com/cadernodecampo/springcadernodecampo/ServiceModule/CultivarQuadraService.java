@@ -44,9 +44,8 @@ public class CultivarQuadraService {
         newObj.quantidade = obj.quantidade;
     }
 
-    public CultivarQuadra create(Integer id_quadra, CultivarQuadra obj) {
-        Quadra quadra = quadraService.findById(id_quadra);
-        obj.quadra = quadra;
+    public CultivarQuadra create(CultivarQuadra obj) {
+        obj.id = null;
         return repository.save(obj);
     }
 
