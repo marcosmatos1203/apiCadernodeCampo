@@ -44,9 +44,8 @@ public class QuadraService {
         newObj.setAnoPlantio(obj.getAnoPlantio());
         newObj.setDistanciaFilas(obj.getDistanciaFilas());
         newObj.setDistanciaPlantas(obj.getDistanciaPlantas());
-        newObj.setPomar(obj.getId_pomar());
+        //newObj.setPomar(obj.getId_pomar());
         newObj.setQuantidadeColmeias(obj.getQuantidadeColmeias());
-        newObj.setPomar(obj.getId_pomar());
 
         return repository.save(newObj);
     }
