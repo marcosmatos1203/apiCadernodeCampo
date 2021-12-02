@@ -47,25 +47,27 @@ public class CultivarQuadraController {
         return ResponseEntity.ok().body(listaCultivarQuadraDTO);
     }
 
+    @PostMapping
+    public ResponseEntity<CultivarQuadra> create(@Valid @RequestBody CultivarQuadra obj) {
+        obj = service.create(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.id, obj.cultivar, obj.quadra, obj.enxerto).toUri();
+        return ResponseEntity.created(uri).body(obj);
+    }
+
     @PutMapping(value = "/{id}")
     public ResponseEntity<CultivarQuadra> update(@Valid @PathVariable Integer id, @RequestBody CultivarQuadra obj) {
         CultivarQuadra newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
-
+/*
     @PatchMapping(value = "/{id}")
     public ResponseEntity<CultivarQuadra> updatePatch(@Valid @PathVariable Integer id, @RequestBody CultivarQuadra obj) {
         CultivarQuadra newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
-    }
+    }*/
 
 
-    @PostMapping
-    public ResponseEntity<CultivarQuadra> create(@Valid @RequestBody CultivarQuadra obj) {
-        obj = service.create(obj);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/cultivarQuadra/{id}").buildAndExpand(obj.id).toUri();
-        return ResponseEntity.created(uri).body(obj);
-    }
+    
     
     //@PostMapping
     //public ResponseEntity<CultivarQuadra> create(@Valid @RequestParam(defaultValue = "0") Integer id_quadra, @RequestBody CultivarQuadra obj){

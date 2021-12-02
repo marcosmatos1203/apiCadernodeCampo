@@ -26,7 +26,6 @@ public class CultivarQuadraService {
     }
 
     public List<CultivarQuadra> findAll(Integer id_quadra) {
-        quadraService.findById(id_quadra);
         return repository.findAllByQuadra(id_quadra);
     }
 

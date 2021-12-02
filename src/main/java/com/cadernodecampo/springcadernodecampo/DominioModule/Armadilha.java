@@ -26,7 +26,7 @@ public class Armadilha implements Serializable{
 
     public String localizacaoTexto;
 
-    @JsonIgnore
+    @JsonIgnore()
     @ManyToOne()
     @JoinColumn(name = "idQuadra")
     public Quadra quadra;
