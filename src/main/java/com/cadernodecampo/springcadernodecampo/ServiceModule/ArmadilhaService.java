@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cadernodecampo.springcadernodecampo.DominioModule.Armadilha;
-import com.cadernodecampo.springcadernodecampo.DominioModule.Quadra;
 import com.cadernodecampo.springcadernodecampo.ExceptionsModule.DataIntegrityViolation;
 import com.cadernodecampo.springcadernodecampo.ExceptionsModule.ObjectNotFoundException;
 import com.cadernodecampo.springcadernodecampo.RepositoryModule.ArmadilhaRepository;
@@ -29,7 +28,7 @@ public class ArmadilhaService {
 
     public List<Armadilha> findAll(Integer idQuadra) {
         quadraService.findById(idQuadra);
-        return repository.findAllByProdutor(idQuadra);
+        return repository.findAllByQuadra(idQuadra);
     }
 
     
@@ -43,13 +42,10 @@ public class ArmadilhaService {
         newObj.latitude = obj.latitude;
         newObj.localizacaoTexto = obj.localizacaoTexto;
         newObj.longitude = obj.longitude;
-        newObj.quadra = obj.quadra;
     }
 
-    public Armadilha create(Integer idQuadra, Armadilha obj) {
+    public Armadilha create(Armadilha obj) {
         obj.id = null;
-        Quadra quadra = quadraService.findById(idQuadra);
-        obj.quadra = quadra;
         return repository.save(obj);
     }
 

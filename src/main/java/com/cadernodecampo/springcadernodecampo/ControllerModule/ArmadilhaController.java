@@ -61,11 +61,12 @@ public class ArmadilhaController {
     }
 
     @PostMapping
-    public ResponseEntity<Armadilha> create(@Valid @RequestParam(defaultValue = "0") Integer idQuadra, @RequestBody Armadilha obj){
-        Armadilha newObj = service.create(idQuadra, obj);
-        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/pomar/{id}").buildAndExpand(newObj.id).toUri();
+    public ResponseEntity<Armadilha> create(@Valid @RequestBody Armadilha obj){
+        Armadilha newObj = service.create(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/armadilha/{id}").buildAndExpand(newObj.id).toUri();
         return ResponseEntity.created(uri).body(obj);
     }
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         service.delete(id);

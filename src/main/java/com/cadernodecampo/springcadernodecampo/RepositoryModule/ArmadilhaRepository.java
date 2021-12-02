@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
 public interface ArmadilhaRepository extends JpaRepository<Armadilha,Integer>{
 
     @Query("select obj from Armadilha obj where obj.quadra.id = :idQuadra order by latitude")
-    List<Armadilha> findAllByProdutor(@Param(value =  "idQuadra") Integer idQuadra);
+    List<Armadilha> findAllByQuadra(@Param(value =  "idQuadra") Integer idQuadra);
     
 }
