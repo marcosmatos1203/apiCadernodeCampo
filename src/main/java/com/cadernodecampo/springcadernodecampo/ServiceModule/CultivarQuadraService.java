@@ -16,8 +16,6 @@ import org.springframework.stereotype.Service;
 public class CultivarQuadraService {
     @Autowired
     private CultivarQuadraRepository repository;
-    @Autowired
-    private QuadraService quadraService;
 
     public CultivarQuadra findById(Integer id) {
         Optional<CultivarQuadra> obj = repository.findByIdCultivarQuadra(id);
