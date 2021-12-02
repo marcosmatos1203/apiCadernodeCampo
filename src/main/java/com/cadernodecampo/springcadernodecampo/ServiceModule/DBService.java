@@ -58,14 +58,14 @@ public class DBService {
 
                 Produtor produtor1 = new Produtor((Integer) null, "Matheus", "Av das torres", "Guaruja", "Lages",
                                 "Santa Catarina", "88500000", "matheus@gmail.com", "32235678", "999235678");
-                Produtor produtor2 = new Produtor((Integer) null, "Matheus", "Av das torres", "Guaruja", "Lages",
+                Produtor produtor2 = new Produtor((Integer) null, "Mauricio", "Av das torres", "Guaruja", "Lages",
                                 "Santa Catarina", "88500000", "matheus@gmail.com", "32235678", "999235678");
 
                 ResponsavelTecnico respTecnico1 = new ResponsavelTecnico((Integer) null, "Marcos",
                                 "Av Alvaro Neri dos Santos", "Bom Jesus", "Lages", "Santa Catarina", "88503397",
                                 "marcos@gmail.com", "322345128", "999231425", "231213");
 
-                ResponsavelTecnico respTecnico2 = new ResponsavelTecnico((Integer) null, "Marcos",
+                ResponsavelTecnico respTecnico2 = new ResponsavelTecnico((Integer) null, "Manuel",
                                 "Av Alvaro Neri dos Santos", "Bom Jesus", "Lages", "Santa Catarina", "88503397",
                                 "marcos@gmail.com", "322345128", "999231425", "2131312");
 
@@ -85,7 +85,7 @@ public class DBService {
                 PortaEnxerto portaE = new PortaEnxerto((Integer)null, "porta enxerto 1");
                 PortaEnxerto portaE2 = new PortaEnxerto((Integer)null, "porta enxerto 2");
 
-                Cultivar cultivar = new Cultivar((Integer)null, "cultivar 1");
+                Cultivar cultivar = new Cultivar((Integer)null, "Maçã Fuji");
                 
                 CultivarQuadra cultivarQuadra = new CultivarQuadra((Integer)null, portaE, quadra1, cultivar, 25);
                 CultivarQuadra cultivarQuadra2 = new CultivarQuadra((Integer)null, portaE2, quadra1, cultivar, 25);
