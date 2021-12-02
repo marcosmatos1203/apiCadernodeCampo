@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class MonitoramentoPraga implements Serializable {
@@ -21,6 +23,8 @@ public class MonitoramentoPraga implements Serializable {
 
     public Integer contagem;
 
+    @ManyToOne()
+    @JoinColumn(name = "idArmadilha")
     public Armadilha armadilha;
 
     public MonitoramentoPraga(Integer id, Date data, Integer contagem, Armadilha armadilha) {
