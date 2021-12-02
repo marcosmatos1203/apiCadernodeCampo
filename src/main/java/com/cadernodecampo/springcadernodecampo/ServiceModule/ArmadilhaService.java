@@ -46,10 +46,8 @@ public class ArmadilhaService {
         newObj.quadra = obj.quadra;
     }
 
-    public Armadilha create(Integer idQuadra, Armadilha obj) {
+    public Armadilha create(Armadilha obj) {
         obj.id = null;
-        Quadra quadra = quadraService.findById(idQuadra);
-        obj.quadra = quadra;
         return repository.save(obj);
     }
 

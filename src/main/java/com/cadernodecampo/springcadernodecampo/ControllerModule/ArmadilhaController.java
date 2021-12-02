@@ -47,25 +47,26 @@ public class ArmadilhaController {
         List<ArmadilhaDTO> listaArmadilhaDTO = listaArmadilha.stream().map(obj -> new ArmadilhaDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listaArmadilhaDTO);
     }
+    
+    @PostMapping
+    public ResponseEntity<Armadilha> create(@Valid @RequestBody Armadilha obj){
+        Armadilha newObj = service.create(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/{id}").buildAndExpand(newObj.id).toUri();
+        return ResponseEntity.created(uri).body(obj);
+    }
 
-    @PutMapping(value = "/id")
+    @PutMapping(value = "/{id}")
     public ResponseEntity<Armadilha> update(@Valid @PathVariable Integer id, @RequestBody Armadilha obj) {
         Armadilha newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
     }
 
-    @PatchMapping(value = "/id")
+    /*@PatchMapping(value = "/id")
     public ResponseEntity<Armadilha> updatePatch(@Valid @PathVariable Integer id, @RequestBody Armadilha obj) {
         Armadilha newObj = service.update(id, obj);
         return ResponseEntity.ok().body(newObj);
-    }
+    }*/
 
-    @PostMapping
-    public ResponseEntity<Armadilha> create(@Valid @RequestParam(defaultValue = "0") Integer idQuadra, @RequestBody Armadilha obj){
-        Armadilha newObj = service.create(idQuadra, obj);
-        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/pomar/{id}").buildAndExpand(newObj.id).toUri();
-        return ResponseEntity.created(uri).body(obj);
-    }
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         service.delete(id);
