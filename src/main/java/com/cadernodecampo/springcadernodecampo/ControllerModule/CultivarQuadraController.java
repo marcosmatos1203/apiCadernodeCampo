@@ -63,7 +63,7 @@ public class CultivarQuadraController {
     @PostMapping
     public ResponseEntity<CultivarQuadra> create(@Valid @RequestBody CultivarQuadra obj) {
         obj = service.create(obj);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/cultivarQuadra/{id}").buildAndExpand(obj.id).toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/cultivarQuadra/{id}").buildAndExpand(obj.id, obj.cultivar, obj.quadra, obj.enxerto).toUri();
         return ResponseEntity.created(uri).body(obj);
     }
     
