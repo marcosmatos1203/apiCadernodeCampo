@@ -34,7 +34,7 @@ public class Quadra implements Serializable {
     @JoinColumn(name = "Pomar")
     private Pomar pomar;
 
-    @OneToMany
+    @OneToMany(mappedBy = "quadra")
     List<Armadilha> armadilhas= new ArrayList<>();
 
 
