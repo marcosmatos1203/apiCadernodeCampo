@@ -26,7 +26,6 @@ public class Armadilha implements Serializable{
 
     public String localizacaoTexto;
 
-    @JsonIgnore()
     @ManyToOne()
     @JoinColumn(name = "idQuadra")
     public Quadra quadra;
@@ -37,6 +36,9 @@ public class Armadilha implements Serializable{
         this.longitude = longitude;
         this.localizacaoTexto = localizacaoTexto;
         this.quadra = quadra;
+    }
+    public Armadilha() {
+        super();
     }
 
     @Override
